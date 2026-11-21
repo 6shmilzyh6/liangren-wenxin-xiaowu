@@ -5,8 +5,9 @@ node_modules/
 .shot-profile-*/
 .verify-profile-*/
 .preview/
-screenshots/
 tmp-shots/
+# docs/screenshots 是 README 要用的正式图，别忽略
+!docs/screenshots/*.png
 *.log
 
 # 本地配置与运行时状态
