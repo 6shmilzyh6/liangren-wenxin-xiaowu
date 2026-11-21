@@ -99,6 +99,17 @@
 
 ---
 
+## 项目介绍视频
+
+[![▶ 点这里看 1 分 54 秒的项目介绍](docs/screenshots/01-room.png)](https://github.com/6shmilzyh6/liangren-wenxin-xiaowu/releases/download/v1.0.0/liangren-intro-v1.0.0.mp4)
+
+12 段口播，从一间大佬搭的房子讲起，到这一版往里加的东西。1920×1080，带中文字幕。
+
+- 在线看：[**liangren-intro-v1.0.0.mp4**](https://github.com/6shmilzyh6/liangren-wenxin-xiaowu/releases/download/v1.0.0/liangren-intro-v1.0.0.mp4)
+- 仓库内文件：[`docs/intro.mp4`](docs/intro.mp4)（Git LFS）
+
+---
+
 ## 怎么玩
 
 ### 方式一：直接下载（推荐给朋友）
@@ -135,16 +146,6 @@ npm run tunnel       # 要异地共居就跑这个，给你一条 https 地址
 | **陪伴** | 电视投屏、书房投屏、观后感、打砖块、书架抽书念一段 |
 | **成长** | 十段亲密度、等级曲线、19 件礼物、22 条互动、15 个技能、114 个片段解锁门槛 |
 | **菜园** | 屋后真有一块地，八畦，能进去种、能收、两个人一起照料 |
-
----
-
-## 项目介绍视频
-
-<video src="docs/intro.mp4" controls width="100%"></video>
-
-12 段口播，从一间大佬搭的房子讲起，到这一版往里加的东西。约 1 分 54 秒，1920×1080。
-
-文件：[`docs/intro.mp4`](docs/intro.mp4)（也在 [Releases](../../releases/latest) 里有一份）
 
 ---
 
