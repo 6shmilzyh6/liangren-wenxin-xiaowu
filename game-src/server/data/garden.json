@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "updatedAt": 1795140848197,
+  "coins": 36,
+  "seeds": {
+    "radish": 3,
+    "carrot": 3,
+    "lettuce": 3,
+    "tomato": 3,
+    "cucumber": 3,
+    "eggplant": 3,
+    "pepper": 3,
+    "pumpkin": 3,
+    "corn": 3,
+    "strawberry": 3,
+    "potato": 3,
+    "cabbage": 3
+  },
+  "inventory": {
+    "radish": 0,
+    "carrot": 0,
+    "lettuce": 0,
+    "tomato": 0,
+    "cucumber": 0,
+    "eggplant": 0,
+    "pepper": 0,
+    "pumpkin": 0,
+    "corn": 0,
+    "strawberry": 0,
+    "potato": 0,
+    "cabbage": 0
+  },
+  "compost": 3,
+  "plots": [
+    {
+      "id": 0,
+      "tilled": true,
+      "cropId": "radish",
+      "progress": 1,
+      "moisture": 0.4,
+      "fertilized": false,
+      "plantedAt": 1795140655814
+    },
+    {
+      "id": 1,
+      "tilled": true,
+      "cropId": "lettuce",
+      "progress": 0.7750000000000001,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": 1795140703814
+    },
+    {
+      "id": 2,
+      "tilled": true,
+      "cropId": "tomato",
+      "progress": 0.9010638888888887,
+      "moisture": 0.23191481481481485,
+      "fertilized": false,
+      "plantedAt": 1795140523814
+    },
+    {
+      "id": 3,
+      "tilled": true,
+      "cropId": "carrot",
+      "progress": 0.5515958333333335,
+      "moisture": 0.24787222222222224,
+      "fertilized": false,
+      "plantedAt": 1795140715814
+    },
+    {
+      "id": 4,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 5,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 6,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 7,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    }
+  ],
+  "care": {
+    "owner": "her",
+    "autoEnabled": true,
+    "nextId": 3,
+    "rotation": 0,
+    "nextPlanAt": 1795140850697,
+    "forceUntil": 0,
+    "status": "先回应你的安排，之后再来菜园",
+    "pendingConflict": null,
+    "task": null,
+    "queue": [],
+    "receipts": [],
+    "recent": [
+      {
+        "id": "garden-1",
+        "type": "harvest",
+        "ok": false,
+        "message": "先回应你的安排，之后再来菜园；已暂停这次采收",
+        "at": 1795140776749
+      },
+      {
+        "id": "garden-2",
+        "type": "harvest",
+        "ok": false,
+        "message": "先回应你的安排，之后再来菜园；已暂停这次采收",
+        "at": 1795140808158
+      },
+      {
+        "id": "garden-3",
+        "type": "water",
+        "ok": false,
+        "message": "先回应你的安排，之后再来菜园；已暂停这次浇水",
+        "at": 1795140848197
+      }
+    ]
+  },
+  "stats": {
+    "harvests": 0,
+    "totalYield": 0
+  },
+  "log": [
+    {
+      "at": 1795140775814,
+      "text": "菜园开张：这片地以后是我们俩的。小萝卜已经能拔了，生菜、番茄、胡萝卜还在长；另有四块空田。"
+    }
+  ]
+}

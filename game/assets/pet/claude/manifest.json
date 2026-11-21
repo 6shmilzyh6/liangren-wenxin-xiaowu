@@ -1,0 +1,9 @@
+{
+  "claude_read": {
+    "state": "reading",
+    "sheet": "书页拍打节奏",
+    "file": "claude_read.webm",
+    "bytes": 345390,
+    "loop": true
+  }
+}

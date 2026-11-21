@@ -1,0 +1,360 @@
+{
+  "version": 1,
+  "updatedAt": 1794877057281,
+  "coins": 1065,
+  "seeds": {
+    "radish": 0,
+    "carrot": 0,
+    "lettuce": 0,
+    "tomato": 0,
+    "cucumber": 0,
+    "eggplant": 0,
+    "pepper": 0,
+    "pumpkin": 0,
+    "corn": 1,
+    "strawberry": 0,
+    "potato": 0,
+    "cabbage": 0
+  },
+  "inventory": {
+    "radish": 1,
+    "carrot": 1,
+    "lettuce": 1,
+    "tomato": 1,
+    "cucumber": 1,
+    "eggplant": 1,
+    "pepper": 1,
+    "pumpkin": 1,
+    "corn": 1,
+    "strawberry": 1,
+    "potato": 1,
+    "cabbage": 1
+  },
+  "compost": 3,
+  "plots": [
+    {
+      "id": 0,
+      "tilled": true,
+      "cropId": "pumpkin",
+      "progress": 0.37516249999999995,
+      "moisture": 0.2997833333333333,
+      "fertilized": false,
+      "plantedAt": 1794876787164
+    },
+    {
+      "id": 1,
+      "tilled": true,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 2,
+      "tilled": true,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 3,
+      "tilled": true,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 4,
+      "tilled": true,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 5,
+      "tilled": true,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 6,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 7,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    }
+  ],
+  "care": {
+    "autoEnabled": true,
+    "nextId": 316,
+    "rotation": 8,
+    "nextPlanAt": 1794877059781,
+    "forceUntil": 0,
+    "status": "小蓝鱼：买到了玉米种子 × 1，花费 6 金币。",
+    "pendingConflict": null,
+    "task": null,
+    "queue": [],
+    "receipts": [],
+    "recent": [
+      {
+        "id": "garden-301",
+        "type": "buySeed",
+        "ok": true,
+        "message": "小蓝鱼：买到了甜椒种子 × 1，花费 5 金币。",
+        "at": 1794876306911
+      },
+      {
+        "id": "garden-302",
+        "type": "water",
+        "ok": true,
+        "message": "小蓝鱼：给 2 号田浇好了水，小苗继续生长。",
+        "at": 1794876351921
+      },
+      {
+        "id": "garden-303",
+        "type": "plant",
+        "ok": true,
+        "message": "小蓝鱼：4 号田种下了甜椒，记得留意土壤水分。",
+        "at": 1794876396935
+      },
+      {
+        "id": "garden-304",
+        "type": "harvest",
+        "ok": true,
+        "message": "小蓝鱼：收获番茄 × 4，已经放进仓库；这块田可以再播种了。",
+        "at": 1794876441947
+      },
+      {
+        "id": "garden-305",
+        "type": "sell",
+        "ok": true,
+        "message": "小蓝鱼：卖出番茄 × 4，收入 16 金币。",
+        "at": 1794876486972
+      },
+      {
+        "id": "garden-306",
+        "type": "water",
+        "ok": true,
+        "message": "小蓝鱼：给 3 号田浇好了水，小苗继续生长。",
+        "at": 1794876546989
+      },
+      {
+        "id": "garden-307",
+        "type": "harvest",
+        "ok": true,
+        "message": "小蓝鱼：收获黄瓜 × 4，已经放进仓库；这块田可以再播种了。",
+        "at": 1794876592024
+      },
+      {
+        "id": "garden-308",
+        "type": "water",
+        "ok": true,
+        "message": "小蓝鱼：给 4 号田浇好了水，小苗继续生长。",
+        "at": 1794876637049
+      },
+      {
+        "id": "garden-309",
+        "type": "sell",
+        "ok": true,
+        "message": "小蓝鱼：卖出黄瓜 × 4，收入 16 金币。",
+        "at": 1794876697083
+      },
+      {
+        "id": "garden-310",
+        "type": "buySeed",
+        "ok": true,
+        "message": "小蓝鱼：买到了南瓜种子 × 1，花费 7 金币。",
+        "at": 1794876742121
+      },
+      {
+        "id": "garden-311",
+        "type": "plant",
+        "ok": true,
+        "message": "小蓝鱼：1 号田种下了南瓜，记得留意土壤水分。",
+        "at": 1794876787164
+      },
+      {
+        "id": "garden-312",
+        "type": "harvest",
+        "ok": true,
+        "message": "小蓝鱼：收获茄子 × 4，已经放进仓库；这块田可以再播种了。",
+        "at": 1794876832180
+      },
+      {
+        "id": "garden-313",
+        "type": "sell",
+        "ok": true,
+        "message": "小蓝鱼：卖出茄子 × 4，收入 20 金币。",
+        "at": 1794876892195
+      },
+      {
+        "id": "garden-314",
+        "type": "harvest",
+        "ok": true,
+        "message": "小蓝鱼：收获甜椒 × 4，已经放进仓库；这块田可以再播种了。",
+        "at": 1794876952232
+      },
+      {
+        "id": "garden-315",
+        "type": "sell",
+        "ok": true,
+        "message": "小蓝鱼：卖出甜椒 × 4，收入 20 金币。",
+        "at": 1794877012273
+      },
+      {
+        "id": "garden-316",
+        "type": "buySeed",
+        "ok": true,
+        "message": "小蓝鱼：买到了玉米种子 × 1，花费 6 金币。",
+        "at": 1794877057281
+      }
+    ]
+  },
+  "stats": {
+    "harvests": 71,
+    "totalYield": 275
+  },
+  "log": [
+    {
+      "at": 1794875676639,
+      "text": "2 号田种下了生菜，记得留意土壤水分。"
+    },
+    {
+      "at": 1794875721657,
+      "text": "给 1 号田浇好了水，小苗继续生长。"
+    },
+    {
+      "at": 1794875766680,
+      "text": "买到了番茄种子 × 1，花费 4 金币。"
+    },
+    {
+      "at": 1794875811702,
+      "text": "给 2 号田浇好了水，小苗继续生长。"
+    },
+    {
+      "at": 1794875856724,
+      "text": "收获胡萝卜 × 3，已经放进仓库；这块田可以再播种了。"
+    },
+    {
+      "at": 1794875901750,
+      "text": "卖出胡萝卜 × 3，收入 9 金币。"
+    },
+    {
+      "at": 1794875946768,
+      "text": "收获生菜 × 4，已经放进仓库；这块田可以再播种了。"
+    },
+    {
+      "at": 1794875991780,
+      "text": "卖出生菜 × 4，收入 8 金币。"
+    },
+    {
+      "at": 1794876036802,
+      "text": "1 号田种下了番茄，记得留意土壤水分。"
+    },
+    {
+      "at": 1794876081815,
+      "text": "买到了黄瓜种子 × 1，花费 4 金币。"
+    },
+    {
+      "at": 1794876126833,
+      "text": "2 号田种下了黄瓜，记得留意土壤水分。"
+    },
+    {
+      "at": 1794876171854,
+      "text": "买到了茄子种子 × 1，花费 5 金币。"
+    },
+    {
+      "at": 1794876216878,
+      "text": "给 1 号田浇好了水，小苗继续生长。"
+    },
+    {
+      "at": 1794876261894,
+      "text": "3 号田种下了茄子，记得留意土壤水分。"
+    },
+    {
+      "at": 1794876306911,
+      "text": "买到了甜椒种子 × 1，花费 5 金币。"
+    },
+    {
+      "at": 1794876351921,
+      "text": "给 2 号田浇好了水，小苗继续生长。"
+    },
+    {
+      "at": 1794876396935,
+      "text": "4 号田种下了甜椒，记得留意土壤水分。"
+    },
+    {
+      "at": 1794876441947,
+      "text": "收获番茄 × 4，已经放进仓库；这块田可以再播种了。"
+    },
+    {
+      "at": 1794876486972,
+      "text": "卖出番茄 × 4，收入 16 金币。"
+    },
+    {
+      "at": 1794876546989,
+      "text": "给 3 号田浇好了水，小苗继续生长。"
+    },
+    {
+      "at": 1794876592024,
+      "text": "收获黄瓜 × 4，已经放进仓库；这块田可以再播种了。"
+    },
+    {
+      "at": 1794876637049,
+      "text": "给 4 号田浇好了水，小苗继续生长。"
+    },
+    {
+      "at": 1794876697083,
+      "text": "卖出黄瓜 × 4，收入 16 金币。"
+    },
+    {
+      "at": 1794876742121,
+      "text": "买到了南瓜种子 × 1，花费 7 金币。"
+    },
+    {
+      "at": 1794876787164,
+      "text": "1 号田种下了南瓜，记得留意土壤水分。"
+    },
+    {
+      "at": 1794876832180,
+      "text": "收获茄子 × 4，已经放进仓库；这块田可以再播种了。"
+    },
+    {
+      "at": 1794876892195,
+      "text": "卖出茄子 × 4，收入 20 金币。"
+    },
+    {
+      "at": 1794876952232,
+      "text": "收获甜椒 × 4，已经放进仓库；这块田可以再播种了。"
+    },
+    {
+      "at": 1794877012273,
+      "text": "卖出甜椒 × 4，收入 20 金币。"
+    },
+    {
+      "at": 1794877057281,
+      "text": "买到了玉米种子 × 1，花费 6 金币。"
+    }
+  ]
+}

@@ -1,0 +1,414 @@
+/* ══════════════════════════════════════════════════════════════════════
+   桌面皮肤 · 纸 / 陶 / 木 / 赤陶橙
+   加载顺序：index.html 内联 <style> → garden.css → 本文件（最后一份，负责覆盖）
+   本文件只做四件事：
+     1. 用 :root 接管全部色值 / 圆角 / 字号 / 行高 / 间距 / 阴影 / 时长
+     2. 把旧样式里那些"冷色玻璃"硬编码压回纸面（深蓝字在白纸上是看不见的）
+     3. 全站焦点态（2px 赤陶环）
+     4. 面板开合动效（自下 6px 浮入）
+   三条禁令：圆角只用 --r-1..3，字号只用 --fs-1..5，字重只用 400/600/700。
+   ══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── 底色：纸 ── */
+  --paper: #f6f0e4;
+  --paper-2: #ece3d3;
+  --paper-3: #e0d5c1;
+
+  /* ── 墨 ── */
+  --ink: #2f2119;
+  --ink-2: #6b5847;
+  --ink-3: #97836d;
+
+  /* ── 线与描边 ── */
+  --line: #d9cbb5;
+  --line-2: #c0ad93;
+  --hairline: rgba(90, 68, 48, .14);
+
+  /* ── 赤陶 / 陶土 ── */
+  --clay: #d2714a;
+  --clay-deep: #af5235;
+  --clay-soft: rgba(210, 113, 74, .14);
+
+  /* ── 其它质感色 ── */
+  --sun: #e0a44a;
+  --sage: #6f8468;
+  --water: #6d8b8e;
+  --danger: #a8432f;
+
+  /* ── 圆角：只三档 ── */
+  --r-1: 4px;
+  --r-2: 10px;
+  --r-3: 16px;
+
+  /* ── 字号：只五档 ── */
+  --fs-1: 11px;
+  --fs-2: 12px;
+  --fs-3: 13px;
+  --fs-4: 15px;
+  --fs-5: 19px;
+
+  /* ── 行高：四档 ── */
+  --lh-1: 1.35;
+  --lh-2: 1.5;
+  --lh-3: 1.7;
+  --lh-4: 1.9;
+
+  /* ── 间距：三档 ── */
+  --sp-1: 6px;
+  --sp-2: 12px;
+  --sp-3: 20px;
+
+  /* ── 阴影：三档，统一带一点棕，不要纯黑 ── */
+  --sh-1: 0 1px 2px rgba(90, 68, 48, .10);
+  --sh-2: 0 6px 18px rgba(90, 68, 48, .14);
+  --sh-3: 0 18px 44px rgba(90, 68, 48, .20);
+
+  /* ── 时长与曲线：三档，全站只用这三条 ── */
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 400ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* ── 字体栈：全站唯一一份 ── */
+  --font-ui: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-read: "Songti SC", "Noto Serif SC", Georgia, "Microsoft YaHei", serif;
+
+  /* ── 旧变量名 → 新令牌。原来那套深蓝玻璃的变量名还在用，这里一次性重指 ── */
+  --muted: var(--ink-2);
+  --card: rgba(246, 240, 228, .94);
+  --card-solid: var(--paper);
+  --accent: var(--clay);
+  --accent-2: var(--sun);
+  --rose: var(--danger);
+  --ok: var(--sage);
+  --shadow: var(--sh-3);
+}
+
+/* ── 1. 基础面 ───────────────────────────────────────────────────── */
+
+body {
+  background: var(--paper-3);
+  color: var(--ink);
+  font: var(--fs-3)/var(--lh-2) var(--font-ui);
+}
+
+/* 纸面正文用一点暖色，别让黑字发青 */
+.top { background: linear-gradient(to bottom, rgba(246, 240, 228, .92), rgba(246, 240, 228, 0) 78%); }
+
+/* ── 2. 圆角/字号收口：把内联样式里散落的 18 种圆角、19 种字号压回令牌 ── */
+
+.panel,
+.her-panel,
+.events-panel,
+.pet-actions,
+.room-chat,
+.chat-toggle,
+.book-panel,
+.game-pad,
+.tv-bar,
+.tv-quote,
+.tv-companion-tools,
+.info {
+  border-radius: var(--r-2);
+  box-shadow: var(--sh-2);
+}
+
+.chip,
+.top .brand .mark,
+.rooms button {
+  border-radius: var(--r-2);
+}
+
+.chip,
+.act,
+.pet-action,
+.pet-group-grid button,
+.rooms button,
+.tv-bar button,
+.tv-companion-tools button {
+  font-size: var(--fs-2);
+  border-radius: var(--r-1);
+  transition: background var(--dur-1) var(--ease),
+              border-color var(--dur-1) var(--ease),
+              color var(--dur-1) var(--ease),
+              transform var(--dur-1) var(--ease);
+}
+
+.chip { border-radius: 999px; } /* 胶囊是形状，不是尺寸档位，单独保留 */
+
+.brand h1 { font-size: var(--fs-5); font-weight: 700; letter-spacing: .06em; }
+.brand p { font-size: var(--fs-1); color: var(--ink-3); letter-spacing: .14em; }
+.panel-head .room { font-size: var(--fs-1); color: var(--clay-deep); letter-spacing: .16em; }
+.panel-head .clock { font-size: var(--fs-2); color: var(--ink-2); }
+.activity { font-size: var(--fs-4); line-height: var(--lh-2); color: var(--ink); }
+.activity .spot { font-size: var(--fs-2); color: var(--clay-deep); }
+.mood-row { font-size: var(--fs-2); color: var(--ink-2); }
+.mood-row .word { font-size: var(--fs-1); color: var(--ink-2); }
+.pet-actions h3,
+.events-panel h3,
+.pet-all summary,
+.pet-group h4 { font-size: var(--fs-1); color: var(--ink-3); font-weight: 600; letter-spacing: .14em; }
+
+/* ── 3. 冷色硬编码 → 纸面。这些是"太 AI"的深蓝玻璃残留 ────────────── */
+
+.chip {
+  background: rgba(255, 252, 245, .86);
+  border-color: var(--line);
+  color: var(--ink);
+  box-shadow: var(--sh-1);
+}
+.chip:hover { background: #fffdf7; border-color: var(--line-2); }
+.chip.active {
+  background: linear-gradient(135deg, var(--sun), var(--clay));
+  border-color: transparent;
+  color: #fffaf3;
+  font-weight: 600;
+}
+.chip .dot { background: var(--sage); box-shadow: none; }
+.chip:not(.active) .dot { background: var(--ink-3); }
+.chip.mode button.on { background: var(--clay-soft); }
+
+.act,
+.pet-action,
+.pet-group-grid button {
+  background: var(--paper-2);
+  border-color: var(--line);
+  color: var(--ink);
+}
+.act:hover,
+.pet-action:hover,
+.pet-group-grid button:hover {
+  background: var(--paper-3);
+  border-color: var(--line-2);
+}
+.act.primary {
+  background: linear-gradient(135deg, rgba(224, 164, 74, .30), rgba(210, 113, 74, .22));
+  border-color: var(--clay);
+  color: var(--clay-deep);
+  font-weight: 600;
+}
+
+.rooms button { background: rgba(255, 252, 245, .9); border-color: var(--line); color: var(--ink-2); }
+.rooms button:hover { color: var(--ink); border-color: var(--line-2); }
+.rooms button.active { background: var(--clay-soft); border-color: var(--clay); color: var(--clay-deep); }
+
+.info p { color: var(--ink-2); }
+.info button {
+  background: var(--clay-soft);
+  border-color: var(--clay);
+  color: var(--clay-deep);
+}
+.info button.ghost { background: transparent; border-color: var(--line); color: var(--ink-2); }
+
+.events-panel li { color: var(--ink-2); }
+.events-panel li span { color: var(--ink-3); }
+.events-panel .empty { color: var(--ink-3); }
+
+.affection { border-top-color: var(--hairline); color: var(--ink-2); }
+.affection b { color: var(--clay-deep); }
+
+/* 血条/状态条：冷蓝 → 陶土系 */
+.bar { background: var(--paper-3); }
+.bar i { background: linear-gradient(90deg, var(--clay-deep), var(--clay)); transition: width var(--dur-3) var(--ease); }
+.bar.hunger i { background: linear-gradient(90deg, var(--clay), var(--sun)); }
+.bar.thirst i { background: linear-gradient(90deg, var(--water), #8fadb0); }
+.bar.pain i { background: linear-gradient(90deg, var(--danger), var(--clay)); }
+
+/* 房间私聊 */
+.chat-toggle { background: rgba(255, 252, 245, .94); border-color: var(--line); color: var(--ink); }
+.chat-toggle:hover { background: #fffdf7; border-color: var(--line-2); }
+.chat-toggle.open { background: var(--clay); border-color: var(--clay); color: #fffaf3; }
+.room-chat { background: rgba(246, 240, 228, .97); border-color: var(--line); color: var(--ink); }
+.room-chat header { border-bottom-color: var(--hairline); }
+.room-chat header button { color: var(--ink-2); }
+.chat-msg.me { background: var(--clay-soft); color: var(--ink); }
+.chat-msg.her { background: var(--paper-3); color: var(--ink); }
+.chat-msg.sys { color: var(--ink-3); }
+.chat-form { border-top-color: var(--hairline); }
+.chat-form input { background: #fffdf7; border-color: var(--line); color: var(--ink); }
+.chat-form input::placeholder { color: var(--ink-3); }
+.chat-form button { background: var(--clay); color: #fffaf3; }
+.chat-note { color: var(--ink-3); }
+
+/* 书房 / 抽书 */
+.book-panel .book-head h3 { color: var(--ink-3); }
+.book-note { color: var(--ink-3); }
+.book-list button { border-color: var(--line); background: var(--paper-2); color: var(--ink); }
+.book-list button:hover { border-color: var(--clay); background: var(--clay-soft); }
+
+/* 电视投屏条 / 陪伴层 */
+.tv-bar { background: rgba(246, 240, 228, .93); border-color: var(--line); }
+.tv-bar button { background: var(--paper-2); color: var(--ink); border-radius: var(--r-1); }
+.tv-bar button:hover { background: var(--paper-3); }
+.tv-bar button.active { background: var(--clay); color: #fffaf3; }
+.tv-companion-tools { background: rgba(246, 240, 228, .93); border-color: var(--line); color: var(--ink-2); }
+.tv-companion-tools button { background: var(--paper-2); color: var(--ink); }
+.tv-companion-tools button:hover { background: var(--paper-3); }
+.tv-companion-tools button.active { background: var(--clay); color: #fffaf3; }
+.tv-companion-size input { accent-color: var(--clay); }
+.tv-companion-label { background: rgba(246, 240, 228, .9); color: var(--ink-2); }
+.tv-quote { background: rgba(246, 240, 228, .95); border-color: var(--line); color: var(--ink); }
+
+/* 气泡、提示、页脚 */
+#bubble,
+.tv-companion-bubble { background: rgba(255, 252, 245, .97); color: var(--ink); box-shadow: var(--sh-2); }
+#toast { background: rgba(47, 33, 25, .9); border-color: var(--hairline); color: var(--paper); }
+.hint { color: var(--ink-3); }
+.foot { color: var(--ink-3); }
+.foot a { color: var(--clay-deep); }
+
+/* 打砖块控制条 */
+.game-pad {
+  background: rgba(246, 240, 228, .94);
+  border-color: var(--line);
+  color: var(--ink-2);
+  box-shadow: var(--sh-2);
+}
+.game-pad b { color: var(--clay-deep); font-weight: 600; }
+.game-pad .game-pad-sub { color: var(--ink-3); }
+.game-pad::before { border-color: var(--clay); }
+
+/* 开场加载：从深蓝夜幕换成一张摊开的纸 */
+#loading {
+  background: radial-gradient(900px 600px at 50% 30%, var(--paper) 0%, var(--paper-2) 60%, var(--paper-3) 100%);
+}
+.loader p { color: var(--ink-2); letter-spacing: .16em; font-size: var(--fs-2); }
+
+/* 对话条 */
+#talk input { background: #fffdf7; border-color: var(--line); color: var(--ink); border-radius: var(--r-2); }
+#talk input::placeholder { color: var(--ink-3); }
+#talk button {
+  background: linear-gradient(135deg, var(--sun), var(--clay));
+  color: #fffaf3;
+  font-weight: 600;
+  border-radius: var(--r-2);
+  transition: background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease);
+}
+#talk button:hover {
+  background: linear-gradient(135deg, var(--clay), var(--clay-deep));
+}
+
+/* ── 4. 焦点态：全站 2px 赤陶环，键盘走一遍能看清在哪 ──────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 2px;
+}
+
+/* 内联样式里有 outline:none 的输入框，用 :focus-visible 补回来 */
+#talk input:focus-visible,
+.chat-form input:focus-visible,
+.garden-panel button:focus-visible,
+.garden-panel summary:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 2px;
+}
+
+/* 面板里的焦点环贴边太挤，往里收 1px */
+.garden-panel button:focus-visible,
+.garden-panel summary:focus-visible {
+  outline-offset: 1px;
+}
+
+/* ── 5. 面板开合：自下 6px 浮入 220ms（原来 hidden 硬切） ───────────── */
+
+@keyframes desk-rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.garden-panel.is-open {
+  animation: desk-rise var(--dur-2) var(--ease) both;
+}
+
+/* 收起态不播动画，避免标题栏抖一下 */
+.garden-panel.is-collapsed.is-open { animation: none; }
+
+/* 抽屉式开合也用同一套曲线 */
+.pet-all[open] > div { animation: desk-rise var(--dur-2) var(--ease) both; }
+
+/* ── 6. 菜园面板：跟着纸面走，别自己一套奶绿 ──────────────────────── */
+
+.garden-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-3);
+  color: var(--ink);
+  box-shadow: var(--sh-3);
+  font: var(--fs-2)/var(--lh-2) var(--font-ui);
+}
+
+.garden-connection {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-2);
+  color: var(--ink);
+  font-size: var(--fs-2);
+  box-shadow: var(--sh-2);
+}
+
+.garden-connection button {
+  background: var(--clay);
+  border-radius: var(--r-1);
+  color: #fffaf3;
+}
+
+/* ── 7. 图标：内联 SVG 一律跟随字号与当前字色 ─────────────────────── */
+
+.chip-ico,
+.btn-ico,
+.garden-plot-icon,
+.garden-crop-icon,
+.garden-list-icon,
+.m-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.chip-ico svg,
+.btn-ico svg,
+.garden-plot-icon svg,
+.garden-crop-icon svg,
+.garden-list-icon svg,
+.book-cover svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chip-ico svg { width: 14px; height: 14px; }
+.btn-ico svg { width: 13px; height: 13px; }
+
+/* 书面图标：白线描在暖色书脊上 */
+.book-cover { color: #fffaf3; }
+.book-cover svg { width: 17px; height: 17px; stroke-width: 1.5; }
+
+.garden-plot-icon { font-size: var(--fs-5); line-height: 1; }
+.garden-crop-icon { font-size: var(--fs-5); line-height: 1; }
+.garden-list-icon { width: 28px; font-size: var(--fs-5); text-align: center; }
+
+/* ── 8. 减少动态 ──────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .garden-panel.is-open,
+  .pet-all[open] > div { animation: none; }
+  .bar i { transition: none; }
+  #talk button:hover,
+  .chip:hover { transform: none; }
+  #talk button,
+  .act,
+  .pet-action,
+  .pet-group-grid button,
+  .book-item,
+  .chat-toggle,
+  .tv-bar button,
+  .tv-companion-tools button { transition: none; }
+}

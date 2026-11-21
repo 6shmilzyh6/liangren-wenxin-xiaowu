@@ -1,0 +1,10 @@
+{
+  "width": 640,
+  "height": 360,
+  "crf": 24,
+  "fps": 24,
+  "count": 20,
+  "totalBytes": 33007883,
+  "source": "5120x5400 spritesheet → 640x360 tile → lanczos upscale → VP9 yuva420p",
+  "note": "浏览器把 1280 宽的帧缩到屏幕尺寸显示，避免放大发虚。"
+}

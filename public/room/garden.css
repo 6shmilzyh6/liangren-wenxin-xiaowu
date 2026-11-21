@@ -1,0 +1,308 @@
+/* 菜园面板的样式：色值全部走 skin-desk.css 的令牌，这里不再自带一张色板。 */
+.garden-connection {position:fixed;z-index:15;left:50%;top:92px;transform:translateX(-50%);max-width:90vw;padding:11px 16px;border-radius:var(--r-2);background:var(--paper);border:1px solid var(--line);color:var(--ink);font-size:var(--fs-2);box-shadow:var(--sh-2)}
+.garden-connection[hidden]{display:none}
+.garden-connection button{margin-left:10px;background:var(--clay);color:#fffaf3;border:0;border-radius:var(--r-1);padding:6px 10px;cursor:pointer}
+.garden-panel {
+  /* 菜园自己的语义变量，全部指回 skin-desk.css 的全局令牌。
+     以前这里是四张色板里的第三张（--garden-green 甚至从未被引用），现在只剩别名。 */
+  --garden-ink: var(--ink);
+  --garden-muted: var(--ink-2);
+  --garden-line: var(--line);
+  --garden-accent: var(--sage);
+  position: fixed;
+  z-index: 12;
+  top: 94px;
+  right: 22px;
+  bottom: auto;
+  max-height: calc(100dvh - 118px);
+  width: clamp(350px, 24vw, 440px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--garden-ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-3);
+  box-shadow: var(--sh-3);
+  font: var(--fs-2)/var(--lh-2) var(--font-ui);
+  isolation: isolate;
+}
+.garden-panel[hidden], .garden-panel [hidden] { display: none !important; }
+.garden-panel *, .garden-panel *::before, .garden-panel *::after { box-sizing: border-box; }
+.garden-panel button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.garden-panel button:disabled { cursor: default; opacity: .45; }
+.garden-panel button:focus-visible, .garden-panel summary:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 2px;
+}
+.garden-panel h2, .garden-panel h3, .garden-panel p { margin: 0; }
+.garden-header { display: flex; justify-content: space-between; gap: 8px; padding: 22px 21px 15px; flex: none; }
+.garden-eyebrow { color: var(--ink-3); font-size: var(--fs-1); letter-spacing: .15em; margin-bottom: var(--sp-1); }
+.garden-heading h2 { color: var(--ink); font-size: var(--fs-5); letter-spacing: .035em; line-height: var(--lh-1); font-weight: 600; }
+.garden-header-tools { display: flex; gap: 5px; align-items: flex-start; }
+.garden-icon-button { width: 29px; height: 29px; display: grid; place-items: center; padding: 0; border: 1px solid var(--line); border-radius: var(--r-2); background: var(--paper-2); color: var(--ink-2); font-size: var(--fs-4); line-height: 1; }
+.garden-icon-button:hover { background: var(--paper-3); }
+.garden-status-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 21px 16px; padding: 11px 0; border-top: 1px solid var(--garden-line); border-bottom: 1px solid var(--garden-line); flex: none; }
+.garden-stat { padding-left: 14px; display: flex; flex-direction: column; gap: 1px; border-left: 1px solid var(--garden-line); }
+.garden-stat:first-child { padding-left: 0; border-left: 0; }
+.garden-stat > span { font-size: var(--fs-1); color: var(--garden-muted); letter-spacing: .08em; }
+.garden-stat strong { color: var(--ink); font-size: var(--fs-5); font-weight: 600; line-height: var(--lh-1); font-variant-numeric: tabular-nums; }
+.garden-stewardship { display: flex; align-items: center; gap: 8px; margin: -6px 21px 12px; padding: 8px 0; flex: none; }
+.garden-stewardship-copy { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.garden-stewardship-copy strong { color: var(--ink); font-size: var(--fs-1); font-weight: 600; }
+.garden-stewardship-status { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-2); font-size: var(--fs-1); }
+.garden-stewardship-controls { display: flex; align-items: center; gap: 5px; flex: none; }
+.garden-auto-toggle, .garden-call-her { border: 1px solid var(--line); background: var(--paper-2); color: var(--ink-2); border-radius: var(--r-1); padding: 7px 7px; min-height: 31px; font-size: var(--fs-1); white-space: nowrap; }
+.garden-auto-toggle { display: flex; align-items: center; gap: 5px; }
+.garden-auto-toggle::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); box-shadow: none; }
+.garden-auto-toggle.is-on { color: var(--sage); background: var(--paper); border-color: var(--sage); }
+.garden-auto-toggle.is-on::before { background: var(--sage); box-shadow: none; }
+.garden-auto-toggle:hover:not(:disabled), .garden-call-her:hover:not(:disabled) { background: var(--paper-3); color: var(--ink); }
+.garden-body { display: flex; flex-direction: column; min-height: 0; flex: 0 1 auto; overflow: hidden; }
+.garden-tabs { display: flex; gap: 5px; margin: 0 21px 13px; padding: 4px; border-radius: var(--r-1); background: var(--paper-2); flex: none; }
+.garden-tab { flex: 1; border: 0; color: var(--ink-2); padding: 6px; background: transparent; border-radius: var(--r-1); font-size: var(--fs-2); }
+.garden-tab.active { color: var(--ink); background: var(--paper); box-shadow: var(--sh-1); font-weight: 600; }
+.garden-scroll { overflow: auto; min-height: 0; flex: 0 1 auto; padding: 0 21px 20px; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+.garden-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 7px; margin: 4px 0 9px; }
+.garden-section-heading h3 { font-size: var(--fs-2); font-weight: 600; }
+.garden-ready-summary { color: var(--ink-3); font-size: var(--fs-1); }
+.garden-plot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+.garden-plot-tile { min-width: 0; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; min-height: 69px; padding: 9px 4px 6px; border: 1px solid var(--line); background: var(--paper-2); border-radius: var(--r-1); color: var(--ink-2); cursor: pointer; transition: background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease); }
+.garden-plot-tile:hover { background: var(--paper-3); }
+.garden-plot-tile.selected { background: var(--paper); border: 1.5px solid var(--sage); box-shadow: inset 0 0 0 1px rgba(111, 132, 104, .16); color: var(--ink); }
+.garden-plot-tile.is-ripe { background: rgba(224, 164, 74, .18); border-color: var(--sun); color: var(--clay-deep); }
+.garden-plot-tile.is-ripe.selected { border: 2px solid var(--sun); }
+.garden-plot-tile.is-dry::after { content: "缺水"; position: absolute; right: 3px; top: 2px; color: var(--danger); font-size: var(--fs-1); }
+.garden-plot-number { position: absolute; top: 5px; left: 6px; color: var(--ink-3); font: var(--fs-1)/1.2 ui-monospace, monospace; }
+.garden-plot-icon { font-size: var(--fs-5); line-height: 1; }
+.garden-plot-state { font-size: var(--fs-1); margin-top: 3px; }
+.garden-bed-detail { margin-top: 15px; border: 1px solid var(--line); border-radius: var(--r-2); padding: 13px; background: var(--paper-2); }
+.garden-detail-heading { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.garden-detail-heading h3 { font-size: var(--fs-3); color: var(--ink); font-weight: 600; }
+.garden-stage-badge { font-size: var(--fs-1); border-radius: 999px; padding: 3px 8px; background: var(--paper-3); color: var(--ink-2); white-space: nowrap; }
+.garden-stage-badge.is-ripe { background: rgba(224, 164, 74, .22); color: var(--clay-deep); }
+.garden-stage-badge.is-dry { background: rgba(168, 67, 47, .12); color: var(--danger); }
+.garden-detail-description { margin-top: 8px; color: var(--garden-muted); font-size: var(--fs-1); line-height: var(--lh-2); }
+.garden-meters { margin-top: 12px; display: grid; gap: 9px; }
+.garden-meter-label { display: flex; justify-content: space-between; font-size: var(--fs-1); margin-bottom: 4px; color: var(--ink-2); }
+.garden-meter-value { font-variant-numeric: tabular-nums; }
+.garden-meter-track { height: 5px; border-radius: var(--r-1); overflow: hidden; background: var(--paper-3); }
+.garden-meter-track i { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--sage); transition: width var(--dur-3) var(--ease); }
+.garden-meter-water .garden-meter-track i { background: var(--water); }
+.garden-meter-water.is-dry .garden-meter-value { color: var(--clay-deep); }
+.garden-eta { font-size: var(--fs-1); color: var(--ink-3); margin: 9px 0 11px; line-height: var(--lh-2); }
+.garden-action-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.garden-action { flex: 1 1 40%; border: 1px solid var(--line); border-radius: var(--r-1); padding: 9px 6px; background: var(--paper-2); color: var(--ink-2); font-size: var(--fs-1); cursor: pointer; transition: background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease); }
+.garden-action:hover:not(:disabled) { background: var(--paper-3); color: var(--ink); }
+.garden-action-primary { flex: 1 1 100%; background: var(--clay); border-color: var(--clay); color: #fffaf3; font-weight: 600; }
+.garden-action-primary:hover:not(:disabled) { background: var(--clay-deep); color: #fffaf3; }
+.garden-action[data-garden-action="harvest"] { background: var(--sun); border-color: var(--sun); color: #43301c; font-weight: 600; }
+.garden-action[data-garden-action="harvest"]:hover:not(:disabled) { background: #cf9440; color: #43301c; }
+.garden-seed-picker { margin-top: 16px; }
+.garden-text-button { border: 0; padding: 0; background: none; color: var(--sage); font-size: var(--fs-1); cursor: pointer; }
+.garden-text-button:hover { color: var(--clay-deep); }
+.garden-crop-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.garden-crop-tile { display: grid; grid-template-columns: 25px 1fr; align-items: center; gap: 0 3px; text-align: left; padding: 9px 7px; border: 1px solid var(--line); border-radius: var(--r-1); color: var(--ink-2); background: var(--paper-2); cursor: pointer; transition: background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease); }
+.garden-crop-tile.selected { border-color: var(--sage); background: var(--paper); }
+.garden-crop-tile:hover { background: var(--paper-3); }
+.garden-crop-icon { font-size: var(--fs-5); grid-row: span 2; }
+.garden-crop-name { font-size: var(--fs-1); font-weight: 600; }
+.garden-crop-info { font-size: var(--fs-1); color: var(--ink-3); white-space: nowrap; }
+.garden-care { margin-top: 16px; border-top: 1px solid var(--garden-line); padding-top: 11px; color: var(--ink-2); font-size: var(--fs-1); }
+.garden-care summary { cursor: pointer; padding: 3px 0; }
+.garden-care-copy { padding-top: 8px; font-size: var(--fs-1); line-height: var(--lh-3); }
+.garden-care-copy p + p { margin-top: 7px; }
+.garden-care-steps { color: var(--sage); font-weight: 600; }
+.garden-feedback { border-top: 1px solid var(--line); flex: none; padding: 11px 21px 13px; background: var(--paper-2); color: var(--ink-2); font-size: var(--fs-1); line-height: var(--lh-2); min-height: 40px; }
+.garden-feedback.is-success { color: var(--sage); }
+.garden-feedback.is-warning { color: var(--clay-deep); }
+.garden-tab-intro { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; padding: 10px 0 16px; border-bottom: 1px solid var(--garden-line); margin-bottom: 11px; }
+.garden-kicker { flex: 1 1 100%; color: var(--ink-3); font-size: var(--fs-1); margin-bottom: 3px; }
+.garden-tab-intro strong { font-size: var(--fs-5); line-height: var(--lh-1); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.garden-storage-unit { font-size: var(--fs-1); color: var(--ink-2); }
+/* 小柜子点数：数字和单位之间本来靠 strong 的右外边距分开，这里补一条给标题行用。 */
+.garden-tab-intro strong + .garden-storage-unit { margin-left: 2px; }
+.garden-empty { padding: 23px 13px; text-align: center; color: var(--ink-3); font-size: var(--fs-2); line-height: var(--lh-3); }
+.garden-inventory-list, .garden-shop-list { display: grid; gap: 0; }
+.garden-inventory-row, .garden-shop-row { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--hairline); }
+.garden-list-icon { flex: none; width: 28px; font-size: var(--fs-5); text-align: center; }
+.garden-list-copy { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.garden-list-copy > strong { font-size: var(--fs-2); font-weight: 600; color: var(--ink); }
+.garden-list-meta { color: var(--ink-3); font-size: var(--fs-1); margin-top: 2px; }
+.garden-small-button { flex: none; border: 1px solid var(--line); border-radius: var(--r-1); padding: 7px 9px; background: var(--paper-2); color: var(--ink-2); font-size: var(--fs-1); min-height: 31px; }
+.garden-small-button:hover:not(:disabled) { background: var(--paper-3); color: var(--ink); }
+/* ── 礼物栏：两个钱包 + 三档分节 ─────────────────────────────────────
+   钱包数字用 tabular-nums 对齐（1 和 7 的宽度一样），两个并排看起来才是账本，
+   而不是两个随手贴上去的数字。*/
+.garden-wallet { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
+.garden-wallet-coin { display: inline-flex; align-items: baseline; gap: 2px; }
+.garden-wallet-coin strong { font-size: var(--fs-5); font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.garden-wallet-note { margin-left: 6px; font-size: var(--fs-1); font-style: normal; color: var(--ink-3); }
+.garden-gift-tier { margin: 18px 0 2px; font-size: var(--fs-1); font-weight: 600; letter-spacing: .04em; color: var(--ink-3); }
+.garden-gift-tier:first-of-type { margin-top: 6px; }
+/* 回礼提醒：只在玄关真有东西时出现，整行可点（不是只能点小按钮）。 */
+.garden-return-hint {
+  display: block; width: 100%; text-align: left; cursor: pointer;
+  margin: 2px 0 10px; padding: 9px 11px; border-radius: var(--r-1);
+  border: 1px solid var(--line); border-left: 2px solid var(--accent, #d2714a);
+  background: rgba(224, 164, 74, .10); color: var(--ink-2);
+  font-size: var(--fs-1); line-height: 1.6;
+}
+.garden-return-hint:hover:not(:disabled) { background: rgba(224, 164, 74, .18); color: var(--ink); }
+.garden-return-hint:disabled { cursor: default; opacity: .7; }
+.garden-log-heading { margin-top: 24px; }
+.garden-log { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.garden-log li { display: flex; gap: 10px; font-size: var(--fs-1); color: var(--ink-2); }
+.garden-log time { font-size: var(--fs-1); color: var(--ink-3); padding-top: 1px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.garden-log-empty { color: var(--ink-3); }
+.garden-shop-intro { padding: 7px 0 10px; }
+.garden-shop-intro h3 { font-size: var(--fs-4); font-weight: 600; color: var(--ink); }
+.garden-shop-intro p { font-size: var(--fs-1); color: var(--ink-2); margin-top: 5px; }
+.garden-shop-held { font-size: var(--fs-1); color: var(--ink-3); margin-top: 2px; }
+.garden-compost-card { display: flex; align-items: center; gap: 9px; margin-top: 17px; padding: 13px 10px; border: 1px solid var(--line); border-radius: var(--r-2); background: var(--paper-2); }
+.garden-panel.is-collapsed { bottom: auto; }
+.garden-panel.is-collapsed .garden-header { padding-bottom: 20px; }
+body.garden-open .her-panel, body.garden-open .events-panel, body.garden-open .info,
+body.garden-open #talk, body.garden-open .cam-bar, body.garden-open .hint,
+body.garden-open #info { display: none !important; }
+body.garden-open .chips > #tvChip,
+body.garden-open .chips > #qqChip { display: none !important; }
+body.garden-open .chips > #gardenChip,
+body.garden-open .chips > #camModeChip,
+body.garden-open .chips > #modeChip,
+body.garden-open .chips > #bubbleChip,
+body.garden-open .chips > #clickMoveChip,
+body.garden-open .chips > #soundChip,
+body.garden-open .chips > #viewChip { display: inline-flex !important; }
+
+/* 菜园面板占着右侧一整列（top:94px 起、最宽 440px）。
+   联机时的「屋里的人」条和面板原本也钉在右下，开房后正好压在菜园上。
+   菜园一打开就把它们整体挪到左边，并缩窄一档；#gxBar 在左下 bottom:18px，
+   所以条子要抬到 76px 才不重叠。 */
+body.garden-open .nt-bar {
+  right: auto;
+  left: 20px;
+  bottom: 76px;
+  z-index: 13;
+}
+body.garden-open .nt-panel {
+  right: auto;
+  left: 20px;
+  bottom: 132px;
+  width: min(300px, 34vw);
+  max-height: min(46dvh, 380px);
+  z-index: 13;
+}
+@media (max-width: 1050px) and (min-width: 901px) {
+  .garden-panel { width: 350px; right: 14px; top: 91px; bottom: auto; }
+  .garden-header { padding: 18px 17px 13px; }
+  .garden-heading h2 { font-size: var(--fs-5); }
+  .garden-status-strip, .garden-tabs, .garden-stewardship { margin-left: 17px; margin-right: 17px; }
+  .garden-scroll { padding-left: 17px; padding-right: 17px; }
+  .garden-feedback { padding-left: 17px; padding-right: 17px; }
+}
+@media (max-width: 900px) {
+  .garden-panel { top: auto; left: 10px; right: 10px; bottom: 10px; width: auto; max-height: 48dvh; border-radius: var(--r-3); }
+  .garden-header { padding: 13px 17px 9px; }
+  .garden-eyebrow { margin-bottom: 4px; }
+  .garden-heading h2 { font-size: var(--fs-5); }
+  .garden-status-strip { margin: 0 17px 9px; padding: 7px 0; }
+  .garden-stat { flex-direction: row; align-items: baseline; gap: 8px; }
+  .garden-stat strong { font-size: var(--fs-3); }
+  .garden-tabs { margin: 0 17px 8px; padding: 3px; }
+  .garden-stewardship { margin: -4px 17px 6px; padding: 3px 0; }
+  .garden-auto-toggle, .garden-call-her { padding: 5px 7px; min-height: 28px; }
+  .garden-tab { padding: 4px 6px; }
+  .garden-scroll { padding: 0 17px 15px; }
+  .garden-feedback { padding: 8px 17px 9px; min-height: 32px; }
+  .garden-plot-grid { gap: 6px; }
+  .garden-plot-tile { min-height: 57px; padding-top: 7px; }
+  .garden-plot-icon { font-size: var(--fs-4); }
+  .garden-plot-state { font-size: var(--fs-1); }
+  .garden-panel.is-collapsed { bottom: 10px; }
+  .garden-panel.is-collapsed .garden-header { padding-bottom: 14px; }
+  body.garden-open .cam-bar { bottom: auto; top: 101px; }
+  body.garden-open .brand p { display: none; }
+  /* 窄屏上菜园是整条底边（top ≈ 52dvh），联机条挂左上角。
+     面板的高度必须自己止步在菜园顶边之上，否则照样压在她脸上。 */
+  body.garden-open .nt-bar {
+    left: 10px;
+    right: auto;
+    bottom: auto;
+    top: 96px;
+    z-index: 13;
+  }
+  body.garden-open .nt-panel {
+    left: 10px;
+    right: 10px;
+    bottom: auto;
+    top: 132px;
+    width: auto;
+    max-height: min(34dvh, calc(52dvh - 148px));
+    z-index: 13;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .garden-meter-track i { transition: none; }
+}
+@media (min-width: 901px) and (max-height: 850px) {
+  .garden-header { padding: 11px 17px 8px; }
+  .garden-heading h2 { font-size: var(--fs-4); }
+  .garden-eyebrow { margin-bottom: 4px; }
+  .garden-status-strip { margin: 0 17px 8px; padding: 5px 0; }
+  .garden-stewardship { margin: -2px 17px 7px; padding: 3px 0; }
+  .garden-auto-toggle, .garden-call-her { padding: 5px 6px; min-height: 28px; }
+  .garden-stat { flex-direction: row; align-items: baseline; gap: 7px; }
+  .garden-stat strong { font-size: var(--fs-4); }
+  .garden-tabs { margin: 0 17px 8px; padding: 3px; }
+  .garden-tab { padding: 5px; }
+  .garden-scroll { padding: 0 17px 14px; }
+  .garden-plot-tile { min-height: 50px; }
+  .garden-plot-icon { font-size: var(--fs-4); }
+  .garden-bed-detail { margin-top: 11px; padding: 10px; }
+  .garden-meters { margin-top: 9px; gap: 7px; }
+  .garden-feedback { padding: 8px 17px; min-height: 32px; }
+}
+
+
+/* 菜园里的通用相处功能：不依赖床、电视或房间家具。 */
+.garden-companionship{margin:10px 0 0;padding:10px 0 0;border-top:1px solid var(--hairline)}
+.garden-companionship-title{display:flex;align-items:baseline;gap:8px;margin:0 0 8px;color:var(--ink);font-size:var(--fs-2);font-weight:600;letter-spacing:.04em}
+.garden-companionship-title small{font-weight:400;color:var(--ink-2);font-size:var(--fs-1);letter-spacing:0}
+.garden-social-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.garden-social-button{border:1px solid var(--line);border-radius:var(--r-1);background:var(--paper-2);color:var(--ink-2);font:inherit;font-size:var(--fs-1);padding:7px 4px;cursor:pointer;transition:background var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease),color var(--dur-1) var(--ease)}
+.garden-social-button:hover{background:var(--paper-3);border-color:var(--line-2);color:var(--ink)}
+.garden-grab-hint{margin:8px 0 0;color:var(--ink-3);font-size:var(--fs-1);line-height:var(--lh-2)}
+@media (max-width:600px){
+  .garden-social-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .garden-social-button{padding:7px 3px}
+}
+
+
+/* 菜园开启时顶部通用控件很多，窄屏不要再让品牌标题被挤成竖排。 */
+body.garden-open .brand h1 { white-space: nowrap; }
+@media (max-width: 600px) {
+  body.garden-open .brand { display: none; }
+  body.garden-open .top { padding-right: 4px; }
+}
+
+/* “开始照料”是明确的即时命令，比普通自主开关更醒目。 */
+.garden-start-care{border:1px solid var(--sage);background:var(--sage);color:#fbf8f0;border-radius:var(--r-1);padding:7px 9px;min-height:31px;font-size:var(--fs-1);white-space:nowrap;font-weight:600}
+.garden-start-care:hover:not(:disabled){background:#5d7157}
+.garden-start-care.is-caring{background:var(--paper-2);color:var(--sage);border-color:var(--sage)}
+.garden-start-care:disabled{opacity:.55;cursor:not-allowed}
+.garden-conflict{margin:0 21px 10px;padding:11px 12px;border:1px solid var(--sun);border-radius:var(--r-2);background:rgba(224,164,74,.14);color:var(--ink);box-shadow:var(--sh-1)}
+.garden-conflict-title{display:block;font-size:var(--fs-2);margin-bottom:4px;font-weight:600}
+.garden-conflict-question{margin:0 0 6px;font-size:var(--fs-1);line-height:var(--lh-2);color:var(--ink-2)}
+.garden-conflict-countdown{display:block;color:var(--clay-deep);font-size:var(--fs-1);margin-bottom:8px}
+.garden-conflict-actions{display:flex;gap:6px;flex-wrap:wrap}
+.garden-conflict-defer,.garden-conflict-force{border-radius:var(--r-1);padding:6px 9px;font-size:var(--fs-1);border:1px solid var(--line);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.garden-conflict-force{border-color:var(--clay);background:var(--clay);color:#fffaf3;font-weight:600}
+.garden-conflict-force:hover{background:var(--clay-deep)}
+.garden-conflict-defer:hover{background:var(--paper-2);color:var(--ink)}
+@media (max-width:900px){
+  .garden-stewardship{flex-wrap:wrap;gap:5px}
+  .garden-stewardship-controls{width:100%;justify-content:flex-end}
+  .garden-start-care{padding:5px 7px;min-height:28px}
+  .garden-conflict{margin-left:17px;margin-right:17px}
+}

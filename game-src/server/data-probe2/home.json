@@ -1,0 +1,995 @@
+{
+  "v": 1,
+  "createdAt": 1794831943953,
+  "updatedAt": 1794877057281,
+  "lastTickAt": 1794877057281,
+  "seed": 778310709,
+  "role": "her",
+  "name": "小蓝鱼",
+  "bed": {
+    "room": "her_room",
+    "spot": "bed"
+  },
+  "bedPose": "lie",
+  "bedElev": 0.52,
+  "bedFacing": 180,
+  "needs": {
+    "hunger": 0.587962264197526,
+    "thirst": 0.30998598518517906,
+    "energy": 0.5873047566666639,
+    "bladder": 0.2631638333333339,
+    "pain": 0
+  },
+  "asleep": false,
+  "sleepPending": false,
+  "freePos": null,
+  "freeTarget": null,
+  "room": "garden",
+  "spot": "shop",
+  "pose": "stand",
+  "elev": 0,
+  "facing": 0,
+  "kind": "idle",
+  "activity": "小蓝鱼：买到了玉米种子 × 1，花费 6 金币。",
+  "walking": false,
+  "reactionUntil": 0,
+  "route": null,
+  "dwell": null,
+  "nextDecisionAt": 1794877087281,
+  "lastInteractionAt": 0,
+  "lamp": true,
+  "bedsideWater": true,
+  "command": null,
+  "lastPhoneAt": 0,
+  "lastDefaultSpot": "living.sofa",
+  "lastMeetingAt": 0,
+  "nextMeetAt": 1794873185176,
+  "visits": 0,
+  "lastVisitAt": 0,
+  "counts": {
+    "pet": 0,
+    "poke": 0,
+    "feed": 0,
+    "water": 0,
+    "play": 0,
+    "talk": 0,
+    "help": 0,
+    "wake": 0
+  },
+  "eventLog": [
+    {
+      "at": 1794873305426,
+      "type": "garden",
+      "text": "小蓝鱼：2 号田种下了黄瓜，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794873350441,
+      "type": "garden",
+      "text": "小蓝鱼：买到了茄子种子 × 1，花费 5 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794873395467,
+      "type": "garden",
+      "text": "小蓝鱼：给 1 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794873440474,
+      "type": "garden",
+      "text": "小蓝鱼：3 号田种下了茄子，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794873485490,
+      "type": "garden",
+      "text": "小蓝鱼：买到了甜椒种子 × 1，花费 5 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794873530514,
+      "type": "garden",
+      "text": "小蓝鱼：给 2 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794873575550,
+      "type": "garden",
+      "text": "小蓝鱼：4 号田种下了甜椒，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794873620564,
+      "type": "garden",
+      "text": "小蓝鱼：收获番茄 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794873665580,
+      "type": "garden",
+      "text": "小蓝鱼：卖出番茄 × 4，收入 16 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794873725612,
+      "type": "garden",
+      "text": "小蓝鱼：给 3 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794873770635,
+      "type": "garden",
+      "text": "小蓝鱼：收获黄瓜 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794873815678,
+      "type": "garden",
+      "text": "小蓝鱼：给 4 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794873875711,
+      "type": "garden",
+      "text": "小蓝鱼：卖出黄瓜 × 4，收入 16 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794873920722,
+      "type": "garden",
+      "text": "小蓝鱼：买到了南瓜种子 × 1，花费 7 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794873965746,
+      "type": "garden",
+      "text": "小蓝鱼：1 号田种下了南瓜，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794874010771,
+      "type": "garden",
+      "text": "小蓝鱼：收获茄子 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794874070819,
+      "type": "garden",
+      "text": "小蓝鱼：卖出茄子 × 4，收入 20 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794874130841,
+      "type": "garden",
+      "text": "小蓝鱼：收获甜椒 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794874190869,
+      "type": "garden",
+      "text": "小蓝鱼：卖出甜椒 × 4，收入 20 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794874235886,
+      "type": "garden",
+      "text": "小蓝鱼：买到了玉米种子 × 1，花费 6 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794874280890,
+      "type": "garden",
+      "text": "小蓝鱼：2 号田种下了玉米，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794874325908,
+      "type": "garden",
+      "text": "小蓝鱼：给 1 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794874370917,
+      "type": "garden",
+      "text": "小蓝鱼：买到了草莓种子 × 1，花费 5 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794874415948,
+      "type": "garden",
+      "text": "小蓝鱼：3 号田种下了草莓，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794874460973,
+      "type": "garden",
+      "text": "小蓝鱼：买到了土豆种子 × 1，花费 4 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794874521003,
+      "type": "garden",
+      "text": "小蓝鱼：4 号田种下了土豆，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794874566039,
+      "type": "garden",
+      "text": "小蓝鱼：给 2 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794874611121,
+      "type": "garden",
+      "text": "小蓝鱼：给 3 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794874656139,
+      "type": "garden",
+      "text": "小蓝鱼：买到了卷心菜种子 × 1，花费 6 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794874701156,
+      "type": "garden",
+      "text": "小蓝鱼：5 号田种下了卷心菜，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot4",
+      "by": "her"
+    },
+    {
+      "at": 1794874746173,
+      "type": "garden",
+      "text": "小蓝鱼：收获南瓜 × 3，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794874791186,
+      "type": "garden",
+      "text": "小蓝鱼：给 4 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794874836203,
+      "type": "garden",
+      "text": "小蓝鱼：收获草莓 × 5，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794874896242,
+      "type": "garden",
+      "text": "小蓝鱼：卖出南瓜 × 3，收入 27 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794874941261,
+      "type": "garden",
+      "text": "小蓝鱼：收获玉米 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794874986275,
+      "type": "garden",
+      "text": "小蓝鱼：卖出玉米 × 4，收入 24 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794875031289,
+      "type": "garden",
+      "text": "小蓝鱼：给 5 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot4",
+      "by": "her"
+    },
+    {
+      "at": 1794875076319,
+      "type": "garden",
+      "text": "小蓝鱼：收获土豆 × 5，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794875136358,
+      "type": "garden",
+      "text": "小蓝鱼：卖出草莓 × 5，收入 25 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794875181376,
+      "type": "garden",
+      "text": "小蓝鱼：卖出土豆 × 5，收入 20 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794875226397,
+      "type": "garden",
+      "text": "小蓝鱼：买到了小萝卜种子 × 1，花费 2 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794875271431,
+      "type": "garden",
+      "text": "小蓝鱼：1 号田种下了小萝卜，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794875316457,
+      "type": "garden",
+      "text": "小蓝鱼：买到了胡萝卜种子 × 1，花费 3 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794875361468,
+      "type": "garden",
+      "text": "小蓝鱼：给 1 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794875406485,
+      "type": "garden",
+      "text": "小蓝鱼：收获卷心菜 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot4",
+      "by": "her"
+    },
+    {
+      "at": 1794875451513,
+      "type": "garden",
+      "text": "小蓝鱼：收获小萝卜 × 3，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794875496528,
+      "type": "garden",
+      "text": "小蓝鱼：卖出小萝卜 × 3，收入 6 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794875541555,
+      "type": "garden",
+      "text": "小蓝鱼：卖出卷心菜 × 4，收入 28 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794875586578,
+      "type": "garden",
+      "text": "小蓝鱼：1 号田种下了胡萝卜，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794875631600,
+      "type": "garden",
+      "text": "小蓝鱼：买到了生菜种子 × 1，花费 2 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794875676639,
+      "type": "garden",
+      "text": "小蓝鱼：2 号田种下了生菜，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794875721657,
+      "type": "garden",
+      "text": "小蓝鱼：给 1 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794875766680,
+      "type": "garden",
+      "text": "小蓝鱼：买到了番茄种子 × 1，花费 4 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794875811702,
+      "type": "garden",
+      "text": "小蓝鱼：给 2 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794875856724,
+      "type": "garden",
+      "text": "小蓝鱼：收获胡萝卜 × 3，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794875901750,
+      "type": "garden",
+      "text": "小蓝鱼：卖出胡萝卜 × 3，收入 9 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794875946768,
+      "type": "garden",
+      "text": "小蓝鱼：收获生菜 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794875991780,
+      "type": "garden",
+      "text": "小蓝鱼：卖出生菜 × 4，收入 8 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794876036802,
+      "type": "garden",
+      "text": "小蓝鱼：1 号田种下了番茄，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794876081815,
+      "type": "garden",
+      "text": "小蓝鱼：买到了黄瓜种子 × 1，花费 4 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794876126833,
+      "type": "garden",
+      "text": "小蓝鱼：2 号田种下了黄瓜，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794876171854,
+      "type": "garden",
+      "text": "小蓝鱼：买到了茄子种子 × 1，花费 5 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794876216878,
+      "type": "garden",
+      "text": "小蓝鱼：给 1 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794876261894,
+      "type": "garden",
+      "text": "小蓝鱼：3 号田种下了茄子，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794876306911,
+      "type": "garden",
+      "text": "小蓝鱼：买到了甜椒种子 × 1，花费 5 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794876351921,
+      "type": "garden",
+      "text": "小蓝鱼：给 2 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794876396935,
+      "type": "garden",
+      "text": "小蓝鱼：4 号田种下了甜椒，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794876441947,
+      "type": "garden",
+      "text": "小蓝鱼：收获番茄 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794876486972,
+      "type": "garden",
+      "text": "小蓝鱼：卖出番茄 × 4，收入 16 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794876546989,
+      "type": "garden",
+      "text": "小蓝鱼：给 3 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794876592024,
+      "type": "garden",
+      "text": "小蓝鱼：收获黄瓜 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1794876637049,
+      "type": "garden",
+      "text": "小蓝鱼：给 4 号田浇好了水，小苗继续生长。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794876697083,
+      "type": "garden",
+      "text": "小蓝鱼：卖出黄瓜 × 4，收入 16 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794876742121,
+      "type": "garden",
+      "text": "小蓝鱼：买到了南瓜种子 × 1，花费 7 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    },
+    {
+      "at": 1794876787164,
+      "type": "garden",
+      "text": "小蓝鱼：1 号田种下了南瓜，记得留意土壤水分。",
+      "room": "garden",
+      "spot": "plot0",
+      "by": "her"
+    },
+    {
+      "at": 1794876832180,
+      "type": "garden",
+      "text": "小蓝鱼：收获茄子 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot2",
+      "by": "her"
+    },
+    {
+      "at": 1794876892195,
+      "type": "garden",
+      "text": "小蓝鱼：卖出茄子 × 4，收入 20 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794876952232,
+      "type": "garden",
+      "text": "小蓝鱼：收获甜椒 × 4，已经放进仓库；这块田可以再播种了。",
+      "room": "garden",
+      "spot": "plot3",
+      "by": "her"
+    },
+    {
+      "at": 1794877012273,
+      "type": "garden",
+      "text": "小蓝鱼：卖出甜椒 × 4，收入 20 金币。",
+      "room": "garden",
+      "spot": "market",
+      "by": "her"
+    },
+    {
+      "at": 1794877057281,
+      "type": "garden",
+      "text": "小蓝鱼：买到了玉米种子 × 1，花费 6 金币。",
+      "room": "garden",
+      "spot": "shop",
+      "by": "her"
+    }
+  ],
+  "lastEventAt": {},
+  "claude": {
+    "role": "claude",
+    "name": "Claude 小公主",
+    "bed": {
+      "room": "her_room",
+      "spot": "claude_bed"
+    },
+    "bedPose": "lie",
+    "bedElev": 0.52,
+    "bedFacing": 90,
+    "seed": 657280862,
+    "needs": {
+      "hunger": 0.5530415851851811,
+      "thirst": 0.08106917222222487,
+      "energy": 0.7094608816666641,
+      "bladder": 0.2631638333333339,
+      "pain": 0
+    },
+    "asleep": false,
+    "sleepPending": false,
+    "freePos": null,
+    "freeTarget": null,
+    "room": "kitchen",
+    "spot": "sink",
+    "pose": "stand",
+    "elev": 0,
+    "facing": 0,
+    "kind": "drink",
+    "activity": "站在水槽前接了杯水，慢慢喝",
+    "walking": false,
+    "reactionUntil": 0,
+    "route": null,
+    "dwell": null,
+    "nextDecisionAt": 1794877267164,
+    "lastInteractionAt": 0,
+    "lamp": true,
+    "bedsideWater": true,
+    "command": null,
+    "lastPhoneAt": 0,
+    "lastDefaultSpot": "bathroom.sink",
+    "visits": 0,
+    "lastVisitAt": 0,
+    "counts": {
+      "pet": 0,
+      "poke": 0,
+      "feed": 0,
+      "water": 0,
+      "play": 0,
+      "talk": 0,
+      "help": 0,
+      "wake": 0
+    },
+    "eventLog": [
+      {
+        "at": 1794832339207,
+        "type": "tv",
+        "text": "窝在沙发上看了一会儿电视",
+        "room": "living",
+        "spot": "sofa",
+        "by": "claude"
+      },
+      {
+        "at": 1794832949575,
+        "type": "meet",
+        "text": "去小蓝鱼那儿串门",
+        "room": "garden",
+        "spot": "market",
+        "by": "claude"
+      },
+      {
+        "at": 1794833464887,
+        "type": "tv",
+        "text": "窝在沙发上看了一会儿电视",
+        "room": "living",
+        "spot": "sofa",
+        "by": "claude"
+      },
+      {
+        "at": 1794834118238,
+        "type": "balcony",
+        "text": "在阳台吹了会儿风",
+        "room": "balcony",
+        "spot": "rail",
+        "by": "claude"
+      },
+      {
+        "at": 1794834665475,
+        "type": "tv",
+        "text": "窝在沙发上看了一会儿电视",
+        "room": "living",
+        "spot": "sofa",
+        "by": "claude"
+      },
+      {
+        "at": 1794835318816,
+        "type": "balcony",
+        "text": "在阳台吹了会儿风",
+        "room": "balcony",
+        "spot": "rail",
+        "by": "claude"
+      },
+      {
+        "at": 1794835871152,
+        "type": "desk",
+        "text": "在书房的小书桌前写写画画了一会儿",
+        "room": "study",
+        "spot": "claude_desk",
+        "by": "claude"
+      },
+      {
+        "at": 1794836534468,
+        "type": "balcony",
+        "text": "在阳台吹了会儿风",
+        "room": "balcony",
+        "spot": "rail",
+        "by": "claude"
+      },
+      {
+        "at": 1794837066739,
+        "type": "tv",
+        "text": "窝在沙发上看了一会儿电视",
+        "room": "living",
+        "spot": "sofa",
+        "by": "claude"
+      },
+      {
+        "at": 1794837720113,
+        "type": "balcony",
+        "text": "在阳台吹了会儿风",
+        "room": "balcony",
+        "spot": "rail",
+        "by": "claude"
+      },
+      {
+        "at": 1794838252414,
+        "type": "tv",
+        "text": "窝在沙发上看了一会儿电视",
+        "room": "living",
+        "spot": "sofa",
+        "by": "claude"
+      },
+      {
+        "at": 1794838947741,
+        "type": "desk",
+        "text": "在书房的小书桌前写写画画了一会儿",
+        "room": "study",
+        "spot": "claude_desk",
+        "by": "claude"
+      },
+      {
+        "at": 1794839613058,
+        "type": "sleep",
+        "text": "关了灯，钻进被窝",
+        "room": "her_room",
+        "spot": "claude_bed",
+        "by": "claude"
+      },
+      {
+        "at": 1794869283403,
+        "type": "wake",
+        "text": "睡醒了，伸了个懒腰",
+        "room": "her_room",
+        "spot": "claude_bed",
+        "by": "claude"
+      },
+      {
+        "at": 1794869348415,
+        "type": "toilet",
+        "text": "去了趟卫生间",
+        "room": "bathroom",
+        "spot": "toilet",
+        "by": "claude"
+      },
+      {
+        "at": 1794869385455,
+        "type": "drink",
+        "text": "去厨房接了杯水，慢慢喝完",
+        "room": "kitchen",
+        "spot": "sink",
+        "by": "claude"
+      },
+      {
+        "at": 1794869431483,
+        "type": "eat",
+        "text": "在厨房吃了点东西，胃里暖了一点",
+        "room": "kitchen",
+        "spot": "fridge",
+        "by": "claude"
+      },
+      {
+        "at": 1794870148899,
+        "type": "shower",
+        "text": "在卫生间洗漱完，清醒了一点",
+        "room": "bathroom",
+        "spot": "sink",
+        "by": "claude"
+      },
+      {
+        "at": 1794870569116,
+        "type": "desk",
+        "text": "在书房的小书桌前写写画画了一会儿",
+        "room": "study",
+        "spot": "claude_desk",
+        "by": "claude"
+      },
+      {
+        "at": 1794871224446,
+        "type": "tv",
+        "text": "窝在沙发上看了一会儿电视",
+        "room": "living",
+        "spot": "sofa",
+        "by": "claude"
+      },
+      {
+        "at": 1794871834774,
+        "type": "meet",
+        "text": "去小蓝鱼那儿串门",
+        "room": "garden",
+        "spot": "plot2",
+        "by": "claude"
+      },
+      {
+        "at": 1794872370008,
+        "type": "desk",
+        "text": "在书房的小书桌前写写画画了一会儿",
+        "room": "study",
+        "spot": "claude_desk",
+        "by": "claude"
+      },
+      {
+        "at": 1794873025299,
+        "type": "tv",
+        "text": "窝在沙发上看了一会儿电视",
+        "room": "living",
+        "spot": "sofa",
+        "by": "claude"
+      },
+      {
+        "at": 1794873690574,
+        "type": "desk",
+        "text": "在书房的小书桌前写写画画了一会儿",
+        "room": "study",
+        "spot": "claude_desk",
+        "by": "claude"
+      },
+      {
+        "at": 1794874360908,
+        "type": "tv",
+        "text": "窝在沙发上看了一会儿电视",
+        "room": "living",
+        "spot": "sofa",
+        "by": "claude"
+      },
+      {
+        "at": 1794875026275,
+        "type": "desk",
+        "text": "在书房的小书桌前写写画画了一会儿",
+        "room": "study",
+        "spot": "claude_desk",
+        "by": "claude"
+      },
+      {
+        "at": 1794875671600,
+        "type": "desk",
+        "text": "在书房的小书桌前写写画画了一会儿",
+        "room": "study",
+        "spot": "claude_desk",
+        "by": "claude"
+      },
+      {
+        "at": 1794876276903,
+        "type": "meet",
+        "text": "去小蓝鱼那儿串门",
+        "room": "garden",
+        "spot": "plot2",
+        "by": "claude"
+      },
+      {
+        "at": 1794876784148,
+        "type": "drink",
+        "text": "去厨房接了杯水，慢慢喝完",
+        "room": "kitchen",
+        "spot": "sink",
+        "by": "claude"
+      }
+    ],
+    "lastEventAt": {},
+    "lastTickAt": 1794831943953,
+    "nextMeetAt": 1794880116903,
+    "lastMeetingAt": 1794876276903,
+    "arrivedAt": 1794876772148
+  },
+  "arrivedAt": 1794877042280
+}

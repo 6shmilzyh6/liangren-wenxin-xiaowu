@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "updatedAt": 1795161201024,
+  "coins": 36,
+  "seeds": {
+    "radish": 3,
+    "carrot": 3,
+    "lettuce": 3,
+    "tomato": 3,
+    "cucumber": 3,
+    "eggplant": 3,
+    "pepper": 3,
+    "pumpkin": 3,
+    "corn": 3,
+    "strawberry": 3,
+    "potato": 3,
+    "cabbage": 3
+  },
+  "inventory": {
+    "radish": 3,
+    "carrot": 0,
+    "lettuce": 0,
+    "tomato": 0,
+    "cucumber": 0,
+    "eggplant": 0,
+    "pepper": 0,
+    "pumpkin": 0,
+    "corn": 0,
+    "strawberry": 0,
+    "potato": 0,
+    "cabbage": 0
+  },
+  "compost": 3,
+  "plots": [
+    {
+      "id": 0,
+      "tilled": true,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 1,
+      "tilled": true,
+      "cropId": "lettuce",
+      "progress": 0.775,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": 1794830562008
+    },
+    {
+      "id": 2,
+      "tilled": true,
+      "cropId": "tomato",
+      "progress": 1,
+      "moisture": 0.10000000000000003,
+      "fertilized": false,
+      "plantedAt": 1794830382008
+    },
+    {
+      "id": 3,
+      "tilled": true,
+      "cropId": "carrot",
+      "progress": 0.7375,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": 1794830574008
+    },
+    {
+      "id": 4,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 5,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 6,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 7,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    }
+  ],
+  "care": {
+    "owner": "her",
+    "autoEnabled": true,
+    "nextId": 2,
+    "rotation": 0,
+    "nextPlanAt": 1795161203524,
+    "forceUntil": 0,
+    "status": "先照顾身体，稍后回来继续",
+    "pendingConflict": null,
+    "task": null,
+    "queue": [],
+    "receipts": [],
+    "recent": [
+      {
+        "id": "garden-1",
+        "type": "harvest",
+        "ok": true,
+        "message": "小蓝鱼：收获小萝卜 × 3，已经放进仓库；这块田可以再播种了。",
+        "at": 1794837726040
+      },
+      {
+        "id": "garden-2",
+        "type": "water",
+        "ok": false,
+        "message": "先照顾身体，稍后回来继续；已暂停这次浇水",
+        "at": 1795161201024
+      }
+    ]
+  },
+  "stats": {
+    "harvests": 1,
+    "totalYield": 3
+  },
+  "log": [
+    {
+      "at": 1794830634008,
+      "text": "菜园开张了：小萝卜已成熟，生菜、番茄和胡萝卜正在长大；另有四块田等你播种。"
+    },
+    {
+      "at": 1794837726040,
+      "text": "收获小萝卜 × 3，已经放进仓库；这块田可以再播种了。"
+    }
+  ]
+}

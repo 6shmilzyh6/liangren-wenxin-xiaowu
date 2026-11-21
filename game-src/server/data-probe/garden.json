@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "updatedAt": 1794831925147,
+  "coins": 36,
+  "seeds": {
+    "radish": 3,
+    "carrot": 3,
+    "lettuce": 3,
+    "tomato": 3,
+    "cucumber": 3,
+    "eggplant": 3,
+    "pepper": 3,
+    "pumpkin": 3,
+    "corn": 3,
+    "strawberry": 3,
+    "potato": 3,
+    "cabbage": 3
+  },
+  "inventory": {
+    "radish": 0,
+    "carrot": 0,
+    "lettuce": 0,
+    "tomato": 0,
+    "cucumber": 0,
+    "eggplant": 0,
+    "pepper": 0,
+    "pumpkin": 0,
+    "corn": 0,
+    "strawberry": 0,
+    "potato": 0,
+    "cabbage": 0
+  },
+  "compost": 3,
+  "plots": [
+    {
+      "id": 0,
+      "tilled": true,
+      "cropId": "radish",
+      "progress": 1,
+      "moisture": 0.4,
+      "fertilized": false,
+      "plantedAt": 1794831802102
+    },
+    {
+      "id": 1,
+      "tilled": true,
+      "cropId": "lettuce",
+      "progress": 0.4169166666666667,
+      "moisture": 0.47744444444444445,
+      "fertilized": false,
+      "plantedAt": 1794831850102
+    },
+    {
+      "id": 2,
+      "tilled": true,
+      "cropId": "tomato",
+      "progress": 0.7084583333333333,
+      "moisture": 0.4887222222222222,
+      "fertilized": false,
+      "plantedAt": 1794831670102
+    },
+    {
+      "id": 3,
+      "tilled": true,
+      "cropId": "carrot",
+      "progress": 0.2626875,
+      "moisture": 0.6330833333333333,
+      "fertilized": false,
+      "plantedAt": 1794831862102
+    },
+    {
+      "id": 4,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 5,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 6,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    },
+    {
+      "id": 7,
+      "tilled": false,
+      "cropId": null,
+      "progress": 0,
+      "moisture": 0,
+      "fertilized": false,
+      "plantedAt": null
+    }
+  ],
+  "care": {
+    "autoEnabled": true,
+    "nextId": 1,
+    "rotation": 0,
+    "nextPlanAt": 0,
+    "forceUntil": 0,
+    "status": "正在走去采收",
+    "pendingConflict": null,
+    "task": {
+      "id": "garden-1",
+      "requestId": "",
+      "action": {
+        "type": "harvest",
+        "plotId": 0
+      },
+      "source": "auto",
+      "phase": "walking",
+      "createdAt": 1794831922102,
+      "startedAt": 1794831922102,
+      "workUntil": 0,
+      "fingerprint": "[\"harvest\",0,null,1,null]",
+      "expectedPlot": {
+        "cropId": "radish",
+        "plantedAt": 1794831802102
+      }
+    },
+    "queue": [],
+    "receipts": [],
+    "recent": []
+  },
+  "stats": {
+    "harvests": 0,
+    "totalYield": 0
+  },
+  "log": [
+    {
+      "at": 1794831922102,
+      "text": "菜园开张了：小萝卜已成熟，生菜、番茄和胡萝卜正在长大；另有四块田等你播种。"
+    }
+  ]
+}

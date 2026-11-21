@@ -1,0 +1,32 @@
+{
+  "v": 1,
+  "createdAt": 1794831944379,
+  "lastSeenAt": 1794831944379,
+  "lastDay": "2026-11-16",
+  "streak": 1,
+  "xp": 15,
+  "aff": {
+    "her": 1,
+    "claude": 1
+  },
+  "counts": {
+    "pet": 0,
+    "feed": 0,
+    "water": 0,
+    "talk": 0,
+    "play": 0,
+    "meet": 0,
+    "garden": 0,
+    "harvest": 0,
+    "dance": 0,
+    "lamp": 0
+  },
+  "players": {},
+  "today": {
+    "day": "2026-11-16",
+    "acts": {},
+    "tasks": {}
+  },
+  "achievements": {},
+  "notes": []
+}

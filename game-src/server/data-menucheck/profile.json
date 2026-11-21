@@ -1,0 +1,38 @@
+{
+  "v": 1,
+  "createdAt": 1794830634154,
+  "lastSeenAt": 1795136760657,
+  "lastDay": "2026-11-20",
+  "streak": 2,
+  "xp": 50,
+  "aff": {
+    "her": 3,
+    "claude": 3
+  },
+  "counts": {
+    "pet": 0,
+    "feed": 0,
+    "water": 0,
+    "talk": 0,
+    "play": 0,
+    "meet": 0,
+    "garden": 0,
+    "harvest": 0,
+    "dance": 0,
+    "lamp": 0
+  },
+  "players": {},
+  "today": {
+    "day": "2026-11-20",
+    "acts": {},
+    "tasks": {}
+  },
+  "achievements": {
+    "gift-g01-flower": 1795136760657,
+    "gift-g02-fish": 1795136760657
+  },
+  "flags": {},
+  "notes": [],
+  "livedMs": 0,
+  "kept": false
+}

@@ -1,0 +1,25 @@
+node_modules/
+.npm-cache/
+.pv-*/
+.smoke-*/
+.shot-profile-*/
+.verify-profile-*/
+.preview/
+screenshots/
+tmp-shots/
+*.log
+
+# 本地配置与运行时状态
+config.json
+config.example.json
+state/
+audio/
+backups/
+.env
+.env.*
+
+# 原始高模（56 MB），只保留优化版 da-feiyu.opt.glb
+**/assets/models/da-feiyu.glb
+
+# 大体积分享包
+*.zip

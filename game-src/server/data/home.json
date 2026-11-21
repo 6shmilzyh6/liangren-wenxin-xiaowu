@@ -1,0 +1,255 @@
+{
+  "v": 2,
+  "createdAt": 1795140775814,
+  "updatedAt": 1795140848197,
+  "lastTickAt": 1795140848197,
+  "seed": 3059522440,
+  "role": "her",
+  "name": "小蓝鱼",
+  "bed": {
+    "room": "her_room",
+    "spot": "bed"
+  },
+  "bedPose": "lie",
+  "bedElev": 0.52,
+  "bedFacing": 180,
+  "needs": {
+    "hunger": 0.2382663452160494,
+    "thirst": 0.2552970060185185,
+    "energy": 0.7491555316666667,
+    "bladder": 0.20191010694444445,
+    "pain": 0
+  },
+  "asleep": false,
+  "sleepPending": false,
+  "freePos": null,
+  "freeTarget": null,
+  "room": "garden",
+  "spot": "plot1",
+  "pose": "stand",
+  "elev": 0,
+  "facing": 0,
+  "kind": "walk",
+  "activity": "去第 2 畦旁浇水",
+  "walking": true,
+  "reactionUntil": 1795140857197,
+  "route": {
+    "points": [
+      [
+        2,
+        -0.9
+      ],
+      [
+        2,
+        -0.9
+      ],
+      [
+        4.7,
+        -0.9
+      ],
+      [
+        4.7,
+        -0.9
+      ]
+    ],
+    "departAt": 1795140847266,
+    "arriveAt": 1795140849837.4285,
+    "speed": 1.05,
+    "target": {
+      "room": "garden",
+      "spot": "plot1",
+      "kind": "idle",
+      "walkText": "去第 2 畦旁浇水",
+      "actText": "先停下手里的活，照顾自己",
+      "dwellMs": 0,
+      "pose": "stand",
+      "elev": 0,
+      "facing": 0,
+      "effect": null,
+      "eventType": null,
+      "eventText": null,
+      "gardenJobId": null,
+      "gardenAction": null,
+      "gardenPlotId": 1,
+      "pos": [
+        4.7,
+        -0.9
+      ]
+    }
+  },
+  "dwell": null,
+  "nextDecisionAt": 0,
+  "lastInteractionAt": 1795140848197,
+  "lamp": false,
+  "bedsideWater": true,
+  "command": null,
+  "lastPhoneAt": 0,
+  "lastDefaultSpot": "",
+  "lastMeetingAt": 0,
+  "nextMeetAt": 0,
+  "visits": 0,
+  "lastVisitAt": 0,
+  "counts": {
+    "pet": 3,
+    "poke": 0,
+    "feed": 0,
+    "water": 0,
+    "play": 0,
+    "talk": 0,
+    "help": 0,
+    "wake": 0
+  },
+  "growth": {
+    "level": 1,
+    "xp": 12,
+    "intimacy": 4.25,
+    "streakDays": 0,
+    "lastGrowAt": 1795140848197,
+    "inventory": [],
+    "wallet": {
+      "day": "2026-11-20",
+      "earned": {
+        "whale": 0,
+        "token": 0
+      },
+      "src": {},
+      "bought": [],
+      "whale": 0,
+      "token": 0
+    },
+    "givenToday": {
+      "day": "2026-11-20",
+      "acts": {
+        "pet": 3
+      },
+      "gained": 4.25,
+      "gifts": [],
+      "talk": null
+    }
+  },
+  "eventLog": [],
+  "lastEventAt": {},
+  "claude": {
+    "role": "claude",
+    "name": "Claude 小公主",
+    "bed": {
+      "room": "her_room",
+      "spot": "claude_bed"
+    },
+    "bedPose": "lie",
+    "bedElev": 0.52,
+    "bedFacing": 90,
+    "seed": 2603925951,
+    "needs": {
+      "hunger": 0.21469381435185186,
+      "thirst": 0.23172447515432093,
+      "energy": 0.7391555316666667,
+      "bladder": 0.16191010694444444,
+      "pain": 0
+    },
+    "asleep": false,
+    "sleepPending": false,
+    "freePos": null,
+    "freeTarget": null,
+    "room": "study",
+    "spot": "claude_desk",
+    "pose": "sit",
+    "elev": 0.44,
+    "facing": 0,
+    "kind": "desk",
+    "activity": "在书房的小书桌前坐着，写写画画",
+    "walking": false,
+    "reactionUntil": 0,
+    "route": null,
+    "dwell": null,
+    "nextDecisionAt": 1795141135814,
+    "lastInteractionAt": 0,
+    "lamp": false,
+    "bedsideWater": true,
+    "command": null,
+    "lastPhoneAt": 0,
+    "lastDefaultSpot": "",
+    "visits": 0,
+    "lastVisitAt": 0,
+    "counts": {
+      "pet": 0,
+      "poke": 0,
+      "feed": 0,
+      "water": 0,
+      "play": 0,
+      "talk": 0,
+      "help": 0,
+      "wake": 0
+    },
+    "growth": {
+      "level": 1,
+      "xp": 0,
+      "intimacy": 0,
+      "streakDays": 0,
+      "lastGrowAt": 0,
+      "inventory": [],
+      "wallet": {
+        "day": "2026-11-20",
+        "earned": {
+          "whale": 0,
+          "token": 0
+        },
+        "src": {},
+        "bought": [],
+        "whale": 0,
+        "token": 0
+      },
+      "givenToday": {
+        "day": "2026-11-20",
+        "acts": {},
+        "gained": 0,
+        "gifts": [],
+        "talk": null
+      }
+    },
+    "eventLog": [],
+    "lastEventAt": {},
+    "lastTickAt": 1795140775814
+  },
+  "together": {
+    "day": "2026-11-20",
+    "sessionMs": 72383,
+    "totalMs": 72383,
+    "points": 0,
+    "pointedMs": 0,
+    "claimed": [],
+    "unlocked": {},
+    "notes": [],
+    "lastAwardAt": 1795140775814,
+    "restedUntil": 0
+  },
+  "lastGrow": {
+    "xp": 4,
+    "intimacy": 0.87,
+    "level": 1,
+    "levelUp": false,
+    "stageUp": false,
+    "stage": {
+      "min": 0,
+      "key": "nod",
+      "title": "点头之交",
+      "tone": "隔着一层"
+    },
+    "deduped": false,
+    "gifts": [],
+    "action": "pet",
+    "base": 2,
+    "times": 2,
+    "factor": 0.437,
+    "repeat": 0.45,
+    "decay": 0.972,
+    "needScore": 0.255,
+    "careFactor": 1,
+    "strainFactor": 1,
+    "capLeft": 16.62,
+    "capped": false,
+    "dailyCap": 20,
+    "gainedToday": 4.25
+  },
+  "arrivedAt": 1795140807486
+}

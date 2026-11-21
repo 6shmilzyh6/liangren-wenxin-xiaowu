@@ -1,0 +1,492 @@
+{
+  "v": 2,
+  "createdAt": 1794830634008,
+  "updatedAt": 1795162323750,
+  "lastTickAt": 1795162323750,
+  "seed": 778310709,
+  "role": "her",
+  "name": "小蓝鱼",
+  "bed": {
+    "room": "her_room",
+    "spot": "bed"
+  },
+  "bedPose": "lie",
+  "bedElev": 0.52,
+  "bedFacing": 180,
+  "needs": {
+    "hunger": 0.7823838888888889,
+    "thirst": 0.9454086402777777,
+    "energy": 0.7017618733333334,
+    "bladder": 0.6536396152777778,
+    "pain": 0
+  },
+  "asleep": false,
+  "sleepPending": false,
+  "freePos": null,
+  "freeTarget": null,
+  "room": "kitchen",
+  "spot": "sink",
+  "pose": "stand",
+  "elev": 0,
+  "facing": 0,
+  "kind": "drink",
+  "activity": "站在水槽前接了杯水，慢慢喝",
+  "walking": false,
+  "reactionUntil": 0,
+  "route": null,
+  "dwell": {
+    "until": 1795162335750,
+    "target": {
+      "room": "kitchen",
+      "spot": "sink",
+      "pose": "stand",
+      "elev": 0,
+      "facing": 0,
+      "walkText": "往厨房走",
+      "actText": "站在水槽前接了杯水，慢慢喝",
+      "kind": "drink",
+      "dwellMs": 12000,
+      "effect": "drink",
+      "eventType": "drink",
+      "eventText": "去厨房接了杯水，慢慢喝完",
+      "urgent": true,
+      "pos": [
+        1.3,
+        1.45
+      ]
+    }
+  },
+  "nextDecisionAt": 0,
+  "lastInteractionAt": 0,
+  "lamp": true,
+  "bedsideWater": true,
+  "command": null,
+  "lastPhoneAt": 0,
+  "lastDefaultSpot": "",
+  "lastMeetingAt": 1795092018023,
+  "nextMeetAt": 1795141821737,
+  "visits": 0,
+  "lastVisitAt": 0,
+  "counts": {
+    "pet": 0,
+    "poke": 0,
+    "feed": 0,
+    "water": 0,
+    "play": 0,
+    "talk": 0,
+    "help": 0,
+    "wake": 0
+  },
+  "growth": {
+    "level": 1,
+    "xp": 12,
+    "intimacy": 0.8999999999999999,
+    "streakDays": 0,
+    "lastGrowAt": 1795162323750,
+    "inventory": [
+      {
+        "id": "g01-flower",
+        "at": 1795091378791
+      },
+      {
+        "id": "g02-fish",
+        "at": 1795091378791
+      }
+    ],
+    "wallet": {
+      "day": "2026-11-20",
+      "earned": {
+        "whale": 0,
+        "token": 0
+      },
+      "src": {},
+      "bought": [],
+      "whale": 3,
+      "token": 0,
+      "seeded": true
+    },
+    "returnTaken": [],
+    "givenToday": {
+      "day": "2026-11-20",
+      "acts": {},
+      "gained": 0.8999999999999999,
+      "gifts": [],
+      "talk": null
+    }
+  },
+  "eventLog": [
+    {
+      "at": 1795091378791,
+      "type": "toilet",
+      "text": "去了趟卫生间",
+      "room": "bathroom",
+      "spot": "toilet",
+      "by": "her"
+    },
+    {
+      "at": 1795091378791,
+      "type": "gift",
+      "text": "收下了一枝花：路边摘的，梗上还带着水。",
+      "room": "bathroom",
+      "spot": "toilet",
+      "by": "her"
+    },
+    {
+      "at": 1795091378791,
+      "type": "gift",
+      "text": "收下了小鱼干：最便宜的讨好，也是最有效的。",
+      "room": "bathroom",
+      "spot": "toilet",
+      "by": "her"
+    },
+    {
+      "at": 1795092018023,
+      "type": "meet",
+      "text": "去Claude 小公主那儿串门",
+      "room": "kitchen",
+      "spot": "sink",
+      "by": "her"
+    },
+    {
+      "at": 1795092982766,
+      "type": "drink",
+      "text": "去厨房接了杯水，慢慢喝完",
+      "room": "kitchen",
+      "spot": "sink",
+      "by": "her"
+    },
+    {
+      "at": 1795093635221,
+      "type": "eat",
+      "text": "在厨房吃了点东西，胃里暖了一点",
+      "room": "kitchen",
+      "spot": "fridge",
+      "by": "her"
+    },
+    {
+      "at": 1795094106280,
+      "type": "sleep",
+      "text": "关了灯，钻进被窝",
+      "room": "her_room",
+      "spot": "bed",
+      "by": "her"
+    },
+    {
+      "at": 1795136760482,
+      "type": "wake",
+      "text": "睡醒了，伸了个懒腰",
+      "room": "her_room",
+      "spot": "bed",
+      "by": "her"
+    },
+    {
+      "at": 1795137391598,
+      "type": "toilet",
+      "text": "去了趟卫生间",
+      "room": "bathroom",
+      "spot": "toilet",
+      "by": "her"
+    },
+    {
+      "at": 1795140782590,
+      "type": "drink",
+      "text": "去厨房接了杯水，慢慢喝完",
+      "room": "kitchen",
+      "spot": "sink",
+      "by": "her"
+    },
+    {
+      "at": 1795141371951,
+      "type": "eat",
+      "text": "在厨房吃了点东西，胃里暖了一点",
+      "room": "kitchen",
+      "spot": "fridge",
+      "by": "her"
+    },
+    {
+      "at": 1795142531350,
+      "type": "together",
+      "text": "一起待了一会儿（+0.6）",
+      "room": "kitchen",
+      "spot": "fridge",
+      "by": "her"
+    },
+    {
+      "at": 1795161201024,
+      "type": "need",
+      "text": "小蓝鱼渴得说不出话，抱着杯子看你",
+      "room": "garden",
+      "spot": "plot1",
+      "by": "her"
+    },
+    {
+      "at": 1795162323750,
+      "type": "gift",
+      "text": "以前收下的那些，也算数（两种货币各补了一些）",
+      "room": "kitchen",
+      "spot": "sink",
+      "by": "her"
+    },
+    {
+      "at": 1795162323750,
+      "type": "together",
+      "text": "一起待了一会儿（+0.3）",
+      "room": "kitchen",
+      "spot": "sink",
+      "by": "her"
+    }
+  ],
+  "lastEventAt": {
+    "drink": 1795140782590,
+    "eat": 1795141371951,
+    "together": 1795162323750,
+    "need": 1795161201024,
+    "gift": 1795162323750
+  },
+  "claude": {
+    "role": "claude",
+    "name": "Claude 小公主",
+    "bed": {
+      "room": "her_room",
+      "spot": "claude_bed"
+    },
+    "bedPose": "lie",
+    "bedElev": 0.52,
+    "bedFacing": 90,
+    "seed": 657280862,
+    "needs": {
+      "hunger": 0.7823838888888889,
+      "thirst": 0.9454086402777777,
+      "energy": 0.7017618733333334,
+      "bladder": 0.6536396152777778,
+      "pain": 0
+    },
+    "asleep": false,
+    "sleepPending": false,
+    "freePos": [
+      4.7,
+      -0.9
+    ],
+    "freeTarget": null,
+    "room": "garden",
+    "spot": "free",
+    "pose": "stand",
+    "elev": 0,
+    "facing": 42,
+    "kind": "meet",
+    "activity": "和小蓝鱼待在一起，小声说着话",
+    "walking": false,
+    "reactionUntil": 0,
+    "route": null,
+    "dwell": {
+      "until": 1795162378750,
+      "target": {
+        "kind": "meet",
+        "walkText": "去找小蓝鱼",
+        "actText": "和小蓝鱼待在一起，小声说着话",
+        "dwellMs": 55000,
+        "pose": "stand",
+        "elev": 0,
+        "facing": 42,
+        "effect": null,
+        "eventType": null,
+        "eventText": null,
+        "urgent": false,
+        "meetWith": "her",
+        "room": "garden",
+        "spot": "free",
+        "pos": [
+          4.7,
+          -0.9
+        ],
+        "access": "g_plot1"
+      }
+    },
+    "nextDecisionAt": 1795143191350,
+    "lastInteractionAt": 0,
+    "lamp": true,
+    "bedsideWater": true,
+    "command": null,
+    "lastPhoneAt": 0,
+    "lastDefaultSpot": "",
+    "visits": 0,
+    "lastVisitAt": 0,
+    "counts": {
+      "pet": 0,
+      "poke": 0,
+      "feed": 0,
+      "water": 0,
+      "play": 0,
+      "talk": 0,
+      "help": 0,
+      "wake": 0
+    },
+    "growth": {
+      "level": 1,
+      "xp": 12,
+      "intimacy": 0.8999999999999999,
+      "streakDays": 0,
+      "lastGrowAt": 1795162323750,
+      "inventory": [
+        {
+          "id": "g01-flower",
+          "at": 1795091355791
+        },
+        {
+          "id": "g02-fish",
+          "at": 1795091355791
+        }
+      ],
+      "wallet": {
+        "day": "2026-11-20",
+        "earned": {
+          "whale": 0,
+          "token": 0
+        },
+        "src": {},
+        "bought": [],
+        "whale": 3,
+        "token": 0,
+        "seeded": true
+      },
+      "returnTaken": [],
+      "givenToday": {
+        "day": "2026-11-20",
+        "acts": {},
+        "gained": 0.8999999999999999,
+        "gifts": [],
+        "talk": null
+      }
+    },
+    "eventLog": [
+      {
+        "at": 1795091355791,
+        "type": "drink",
+        "text": "去厨房接了杯水，慢慢喝完",
+        "room": "kitchen",
+        "spot": "sink",
+        "by": "claude"
+      },
+      {
+        "at": 1795091355791,
+        "type": "gift",
+        "text": "收下了一枝花：路边摘的，梗上还带着水。",
+        "room": "kitchen",
+        "spot": "sink",
+        "by": "claude"
+      },
+      {
+        "at": 1795091355791,
+        "type": "gift",
+        "text": "收下了小鱼干：最便宜的讨好，也是最有效的。",
+        "room": "kitchen",
+        "spot": "sink",
+        "by": "claude"
+      },
+      {
+        "at": 1795092208371,
+        "type": "toilet",
+        "text": "去了趟卫生间",
+        "room": "bathroom",
+        "spot": "toilet",
+        "by": "claude"
+      },
+      {
+        "at": 1795093632765,
+        "type": "eat",
+        "text": "在厨房吃了点东西，胃里暖了一点",
+        "room": "kitchen",
+        "spot": "fridge",
+        "by": "claude"
+      },
+      {
+        "at": 1795098213417,
+        "type": "sleep",
+        "text": "关了灯，钻进被窝",
+        "room": "her_room",
+        "spot": "claude_bed",
+        "by": "claude"
+      },
+      {
+        "at": 1795136760482,
+        "type": "wake",
+        "text": "睡醒了，伸了个懒腰",
+        "room": "her_room",
+        "spot": "claude_bed",
+        "by": "claude"
+      },
+      {
+        "at": 1795137391598,
+        "type": "toilet",
+        "text": "去了趟卫生间",
+        "room": "bathroom",
+        "spot": "toilet",
+        "by": "claude"
+      },
+      {
+        "at": 1795140782590,
+        "type": "drink",
+        "text": "去厨房接了杯水，慢慢喝完",
+        "room": "kitchen",
+        "spot": "sink",
+        "by": "claude"
+      },
+      {
+        "at": 1795141371951,
+        "type": "eat",
+        "text": "在厨房吃了点东西，胃里暖了一点",
+        "room": "kitchen",
+        "spot": "fridge",
+        "by": "claude"
+      },
+      {
+        "at": 1795161201024,
+        "type": "need",
+        "text": "Claude 小公主渴得说不出话，抱着杯子看你",
+        "room": "kitchen",
+        "spot": "fridge",
+        "by": "claude"
+      },
+      {
+        "at": 1795161201024,
+        "type": "meet",
+        "text": "去小蓝鱼那儿串门",
+        "room": "garden",
+        "spot": "plot1",
+        "by": "claude"
+      },
+      {
+        "at": 1795162323750,
+        "type": "gift",
+        "text": "以前收下的那些，也算数（两种货币各补了一些）",
+        "room": "garden",
+        "spot": "free",
+        "by": "claude"
+      }
+    ],
+    "lastEventAt": {
+      "drink": 1795140782590,
+      "eat": 1795141371951,
+      "need": 1795161201024,
+      "meet": 1795161201024,
+      "gift": 1795162323750
+    },
+    "lastTickAt": 1794830634008,
+    "lastMeetingAt": 1795161201024,
+    "nextMeetAt": 1795164921024,
+    "arrivedAt": 1795162323750
+  },
+  "together": {
+    "day": "2026-11-20",
+    "sessionMs": 1122726,
+    "totalMs": 3826143,
+    "points": 1,
+    "pointedMs": 0,
+    "claimed": [],
+    "unlocked": {},
+    "notes": [],
+    "lastAwardAt": 1795161801024,
+    "restedUntil": 0
+  },
+  "arrivedAt": 1795162323750
+}

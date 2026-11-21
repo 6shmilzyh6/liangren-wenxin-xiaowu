@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Claude 小公主 · 造型预览</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #f6efe1; overflow: hidden; }
+  canvas { display: block; }
+  #tag {
+    position: fixed; left: 16px; bottom: 14px;
+    font: 12px/1.6 "PingFang SC","Microsoft YaHei",sans-serif;
+    color: #6b5847; letter-spacing: .08em;
+  }</style>
+</head>
+<body>
+<div id="tag">Claude 小公主 · 造型预览</div>
+<script type="module">
+import * as THREE from './vendor/three.module.js';
+import { ClaudeActor } from './claude-actor.js';
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.setClearAlpha(0);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = null;
+
+const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 60);
+
+// 光：暖主光 + 冷补光 + 环境，接近屋里那套
+const key = new THREE.DirectionalLight(0xfff1dd, 2.1);
+key.position.set(2.4, 3.6, 3.2);
+key.castShadow = true;
+key.shadow.mapSize.set(1024, 1024);
+key.shadow.camera.near = 0.5;
+key.shadow.camera.far = 14;
+key.shadow.bias = -0.002;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xd8e6ff, 0.55);
+fill.position.set(-3, 1.6, 1.4);
+scene.add(fill);
+const rim = new THREE.DirectionalLight(0xffd9b8, 0.7);
+rim.position.set(-1.2, 2.2, -3.4);
+scene.add(rim);
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd9c8b2, 0.85));
+
+const actor = new ClaudeActor(scene);
+window.__actorRef = actor;
+window.__THREE = THREE;
+window.__camera = camera;
+window.__scene = scene;
+actor.setVisible(true);
+actor.setPose({ pos: [0, 0], elev: 0, pose: 'stand', kind: 'idle', walking: false, facing: 0 });
+
+// 视角参数可被 URL 覆盖：?yaw=deg&pitch=deg&dist=m&fov=deg&face=happy&pose=stand|sit|lie&gesture=xxx
+const q = new URLSearchParams(location.search);
+const yaw = Number(q.get('yaw') ?? 0) * Math.PI / 180;
+const pitch = Number(q.get('pitch') ?? 6) * Math.PI / 180;
+const dist = Number(q.get('dist') ?? 2.55);
+const targetY = Number(q.get('ty') ?? 0.98);
+if (q.get('fov')) { camera.fov = Number(q.get('fov')); camera.updateProjectionMatrix(); }
+if (q.get('face')) actor.setFace(q.get('face'));
+if (q.get('pose')) {
+  actor.setPose({ pos: [0, 0], elev: 0, pose: q.get('pose'), kind: 'idle', walking: false, facing: yaw + Math.PI });
+}
+if (q.get('gesture')) actor.playGesture(q.get('gesture'));
+// ?nooutline=1 —— 藏掉所有描边壳，用来单独看表面颜色（描边很黑，会盖掉睫毛、嘴这些细节）
+if (q.get('nooutline') === '1') {
+  actor.group.traverse((o) => { if (o.userData.isOutline) o.visible = false; });
+}
+// ?hide=hair|face|cheek —— 藏掉指定部件，用来隔离"谁挡住了谁"
+if (q.get('hide')) {
+  const what = q.get('hide');
+  actor.group.traverse((o) => {
+    if (!o.isMesh || o.userData.isOutline) return;
+    const hex = o.material?.color?.getHexString?.();
+    const isHair = ['e47c4f', 'af5235', 'e89b71', 'c4613d'].includes(hex);
+    if ((what === 'hair' && isHair)
+      || (what === 'face' && o.name === 'face')
+      || (what === 'cheek' && o.name === 'cheek')
+      || (what === 'outline' && o.userData.isOutline)) {
+      o.visible = false;
+    }
+  });
+}
+
+const look = new THREE.Vector3(0, targetY, 0);
+camera.position.set(Math.sin(yaw) * dist, targetY + Math.sin(pitch) * dist, Math.cos(yaw) * dist);
+camera.lookAt(look);
+
+// 地面：给脚下一点接触阴影（透明背景下不画圆盘，只留阴影接收面）
+const ground = new THREE.Mesh(
+  new THREE.PlaneGeometry(6, 6),
+  new THREE.ShadowMaterial({ opacity: 0.18 })
+);
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+let t = 0;
+const clock = new THREE.Clock();
+function loop() {
+  const dt = Math.min(clock.getDelta(), 0.05);
+  t += dt;
+  actor.update(dt, camera, { mode: 'overview', lookAtCamera: false });
+  renderer.render(scene, camera);
+  requestAnimationFrame(loop);
+}
+loop();
+
+// 把世界高度映射成屏幕 y（以角色所在的 x/z 为基准），供像素验收换算。
+window.__projectY = (worldY) => {
+  const v = new THREE.Vector3(0, worldY, 0).project(camera);
+  return (-v.y * 0.5 + 0.5) * innerHeight;
+};
+window.__projectX = (worldX, worldY) => {
+  const v = new THREE.Vector3(worldX, worldY, 0).project(camera);
+  return (v.x * 0.5 + 0.5) * innerWidth;
+};
+
+// 射线标注图：每个格子从相机打一条射线，报"最前面打到哪个部件"。
+// 比按颜色分类可靠得多 —— 直接给出构图证据：谁挡住了谁。
+window.__hitMap = (cols = 46) => {
+  const rc = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  const w = innerWidth;
+  const h = innerHeight;
+  // 先求角色在屏幕上的包围盒
+  const box = new THREE.Box3().setFromObject(actor.group);
+  let x0 = 1e9; let y0 = 1e9; let x1 = -1e9; let y1 = -1e9;
+  for (let ix = 0; ix <= 1; ix += 1) {
+    for (let iy = 0; iy <= 1; iy += 1) {
+      for (let iz = 0; iz <= 1; iz += 1) {
+        const v = new THREE.Vector3(
+          ix ? box.max.x : box.min.x,
+          iy ? box.max.y : box.min.y,
+          iz ? box.max.z : box.min.z
+        ).project(camera);
+        const sx = (v.x * 0.5 + 0.5) * w;
+        const sy = (-v.y * 0.5 + 0.5) * h;
+        if (sx < x0) x0 = sx;
+        if (sx > x1) x1 = sx;
+        if (sy < y0) y0 = sy;
+        if (sy > y1) y1 = sy;
+      }
+    }
+  }
+  x0 = Math.max(0, x0 - 4); x1 = Math.min(w - 1, x1 + 4);
+  y0 = Math.max(0, y0 - 4); y1 = Math.min(h - 1, y1 + 4);
+  const stepX = Math.max(1, (x1 - x0) / cols);
+  const stepY = stepX * 2.05;
+
+  // 给每个 mesh 归一个短标签：优先它自己的 name，其次材质色，最后按几何体类型。
+  // 注意跳过根组 'claude-princess' 的 name，否则所有部件都会被标成同一类。
+  const ROOT_NAME = actor.group.name;
+  const labelOf = (obj) => {
+    let o = obj;
+    let depth = 0;
+    while (o && depth < 6) {
+      if (o.name && o.name !== ROOT_NAME) return o.name.slice(0, 3);
+      o = o.parent;
+      depth += 1;
+    }
+    const c = obj.material?.color;
+    if (c) {
+      const hx = c.getHexString();
+      const map = {
+        e47c4f: '发', af5235: '暗', e89b71: '高', c4613d: '梢',
+        fbe7db: '裙', dab5a2: '裾', d2714a: '橙', fff7ef: '瓣',
+        '33110a': '墨', '4c281e': '书', e8b87c: '金', f2d3c4: '肤',
+        ffffff: '脸'
+      };
+      if (map[hx]) return map[hx];
+      // 描边共用材质（MeshBasicMaterial 0x33110a + BackSide）
+      if (obj.material?.side === THREE.BackSide) return '描';
+      return hx.slice(0, 3);
+    }
+    return '??';
+  };
+
+  const rows = [];
+  const tally = {};
+  for (let y = y0; y <= y1; y += stepY) {
+    const line = [];
+    for (let x = x0; x <= x1; x += stepX) {
+      ndc.x = (x / w) * 2 - 1;
+      ndc.y = -(y / h) * 2 + 1;
+      rc.setFromCamera(ndc, camera);
+      const hits = rc.intersectObject(actor.group, true);
+      // 描边壳是 BackSide 放大小壳，射线从外面进入时会先打到它；
+      // 裁决时跳过描边，只取真正可见的实体面（否则整张图都是"描"）。
+      const first = hits.find((hh) => hh.object.visible && !hh.object.userData.isOutline
+        && hh.object.material?.opacity !== 0);
+      if (!first) { line.push('  '); continue; }
+      const lb = labelOf(first.object);
+      tally[lb] = (tally[lb] || 0) + 1;
+      line.push(lb);
+    }
+    rows.push(line.join('').replace(/\s+$/, ''));
+  }
+  return JSON.stringify({ rows, tally, box: { x0: Math.round(x0), y0: Math.round(y0), x1: Math.round(x1), y1: Math.round(y1) } });
+};
+
+// 按屏幕 y 扫一条中轴，报每个高度上最前面是什么 —— 用来判断"裙子有没有被头发挡住"。
+window.__columnProfile = (screenX) => {
+  const rc = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  const out = [];
+  for (let y = 0; y < innerHeight; y += 6) {
+    ndc.x = ((screenX ?? innerWidth / 2) / innerWidth) * 2 - 1;
+    ndc.y = -(y / innerHeight) * 2 + 1;
+    rc.setFromCamera(ndc, camera);
+    const hit = rc.intersectObject(actor.group, true).find((hh) => hh.object.visible);
+    if (!hit) continue;
+    const c = hit.object.material?.color;
+    out.push({ y, worldY: +hit.point.y.toFixed(3), hex: c ? '#' + c.getHexString() : null });
+  }
+  return JSON.stringify(out);
+};
+
+// 把脸贴图本身画成字符图 —— 用来判断"眼距/眼大小/嘴位置"这些五官比例。
+window.__faceAscii = (name = 'idle', cols = 44) => {
+  const src = actor.faceMaps[name];
+  if (!src?.image) return JSON.stringify({ error: '没有脸贴图' });
+  const img = src.image;
+  const c = document.createElement('canvas');
+  c.width = img.width; c.height = img.height;
+  const g = c.getContext('2d');
+  g.drawImage(img, 0, 0);
+  const d = g.getImageData(0, 0, c.width, c.height).data;
+  const W = c.width; const H = c.height;
+
+  const classify = (r, gg, b, a) => {
+    if (a < 24) return ' ';
+    const lum = (r * 299 + gg * 587 + b * 114) / 1000;
+    if (lum < 60) return '@';                                  // 瞳/睫毛
+    if (r > 200 && gg > 150 && b < 140 && r - b > 60) return 'o'; // 琥珀虹膜
+    if (r > 210 && gg > 140 && b > 120 && r - gg < 90 && b > 100) return 's'; // 腮红/嘴
+    if (lum > 240) return '.';                                 // 眼白/高光
+    return '-';
+  };
+
+  const stepX = Math.max(1, Math.round(W / cols));
+  const stepY = Math.max(1, Math.round(stepX * 2.05));
+  const rows = [];
+  const tally = {};
+  for (let y = 0; y < H; y += stepY) {
+    let line = '';
+    for (let x = 0; x < W; x += stepX) {
+      const votes = {};
+      for (let yy = y; yy < Math.min(y + stepY, H); yy += 1) {
+        for (let xx = x; xx < Math.min(x + stepX, W); xx += 1) {
+          const i = (yy * W + xx) * 4;
+          const ch = classify(d[i], d[i + 1], d[i + 2], d[i + 3]);
+          votes[ch] = (votes[ch] || 0) + 1;
+        }
+      }
+      let best = ' '; let bestN = 0;
+      for (const k in votes) if (votes[k] > bestN) { bestN = votes[k]; best = k; }
+      tally[best] = (tally[best] || 0) + 1;
+      line += best;
+    }
+    rows.push(line.replace(/\s+$/, ''));
+  }
+
+  // 五官包围盒：按"深色像素"（瞳/睫毛）求左右两团的位置
+  let leftMinX = W, rightMaxX = 0, topMinY = H, botMaxY = 0;
+  let lSum = 0; let lN = 0; let rSum = 0; let rN = 0;
+  for (let y = 0; y < H; y += 1) {
+    for (let x = 0; x < W; x += 1) {
+      const i = (y * W + x) * 4;
+      if (d[i + 3] < 24) continue;
+      const lum = (d[i] * 299 + d[i + 1] * 587 + d[i + 2] * 114) / 1000;
+      if (lum >= 70) continue;
+      if (x < leftMinX) leftMinX = x;
+      if (x > rightMaxX) rightMaxX = x;
+      if (y < topMinY) topMinY = y;
+      if (y > botMaxY) botMaxY = y;
+      if (x < W / 2) { lSum += x; lN += 1; } else { rSum += x; rN += 1; }
+    }
+  }
+  return JSON.stringify({
+    size: [W, H], rows, tally,
+    dark: {
+      xMin: leftMinX, xMax: rightMaxX, yMin: topMinY, yMax: botMaxY,
+      leftCX: lN ? Math.round(lSum / lN) : null,
+      rightCX: rN ? Math.round(rSum / rN) : null,
+      gap: lN && rN ? Math.round(rSum / rN) - Math.round(lSum / lN) : null
+    }
+  });
+};
+
+// 脸片在屏幕上的实际覆盖范围：射线打到 face 网格即算命中。
+// 用来验证"五官有没有落在头上、有没有被头发盖住"。
+window.__faceScreen = (step = 3) => {
+  const rc = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  let x0 = 1e9; let y0 = 1e9; let x1 = -1e9; let y1 = -1e9;
+  let hits = 0; let samples = 0;
+  for (let y = 0; y < innerHeight; y += step) {
+    for (let x = 0; x < innerWidth; x += step) {
+      samples += 1;
+      ndc.x = (x / innerWidth) * 2 - 1;
+      ndc.y = -(y / innerHeight) * 2 + 1;
+      rc.setFromCamera(ndc, camera);
+      const h = rc.intersectObject(actor.group, true)
+        .find((hh) => hh.object.visible && !hh.object.userData.isOutline);
+      if (!h) continue;
+      const isFace = h.object.name === 'face';
+      const isHair = h.object.name === 'cheek' || h.object.material?.color?.getHexString() === 'e47c4f'
+        || h.object.material?.color?.getHexString() === 'af5235';
+      if (isFace) {
+        hits += 1;
+        if (x < x0) x0 = x;
+        if (x > x1) x1 = x;
+        if (y < y0) y0 = y;
+        if (y > y1) y1 = y;
+      } else if (isHair && x > x0 && x < x1 && y > y0 && y < y1) {
+        // 脸框内被头发盖住的采样数
+        hits -= 0;
+      }
+    }
+  }
+  return JSON.stringify({ samples, faceHits: hits, bbox: { x0, y0, x1, y1 } });
+};
+
+// 调试：按名字或颜色藏掉部件，用来判断"谁挡住了谁"。
+//   ?hide=hair   藏掉所有橙色头发
+//   ?hide=face   藏掉脸片
+//   ?hide=cheek  只藏鬓发
+window.__debugHide = (what) => {
+  let n = 0;
+  actor.group.traverse((o) => {
+    if (!o.isMesh || o.userData.isOutline) return;
+    const hex = o.material?.color?.getHexString?.();
+    const isHair = ['e47c4f', 'af5235', 'e89b71', 'c4613d'].includes(hex);
+    if ((what === 'hair' && isHair)
+      || (what === 'face' && o.name === 'face')
+      || (what === 'cheek' && o.name === 'cheek')) {
+      o.visible = false;
+      n += 1;
+    }
+  });
+  return n;
+};
+
+// 量化验收：把关键部件的世界坐标量出来，供 shoot-claude.mjs --dump 读取。
+// 没有视觉通道时，这是唯一能证明「发饰在观察者左侧」「裙摆到膝盖」的办法。
+window.__dumpGeo = () => {
+  const box = (obj) => {
+    if (!obj) return null;
+    const b = new THREE.Box3().setFromObject(obj);
+    if (!isFinite(b.min.x)) return null;
+    return {
+      min: [+b.min.x.toFixed(3), +b.min.y.toFixed(3), +b.min.z.toFixed(3)],
+      max: [+b.max.x.toFixed(3), +b.max.y.toFixed(3), +b.max.z.toFixed(3)],
+      size: [+(b.max.x - b.min.x).toFixed(3), +(b.max.y - b.min.y).toFixed(3), +(b.max.z - b.min.z).toFixed(3)],
+      cx: +((b.min.x + b.max.x) / 2).toFixed(3),
+      cy: +((b.min.y + b.max.y) / 2).toFixed(3),
+    };
+  };
+  const g = actor.group;
+  const named = {};
+  g.traverse((o) => {
+    if (!o.name) return;
+    named[o.name] = box(o);
+  });
+  const whole = box(g);
+  // 分段高度：脚底 y、髋、头心、头顶
+  const out = {
+    whole,
+    head: box(actor.head),
+    torso: box(actor.torso),
+    hips: box(actor.hips),
+    skirt: box(actor.skirt),
+    crown: box(actor.crown),
+    book: box(actor.book),
+    backBow: box(actor.backBow),
+    arms: actor.arms ? actor.arms.map((a) => box(a.group)) : null,
+    legs: actor.legs ? actor.legs.map((b) => box(b)) : null,
+    named,
+    hipY: 0.52,
+    headToBody: whole ? +((whole.max.y - whole.min.y) / ((actor.head ? (new THREE.Box3().setFromObject(actor.head)).max.y - (new THREE.Box3().setFromObject(actor.head)).min.y : 0.57))).toFixed(2) : null,
+  };
+  return JSON.stringify(out);
+};
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+// ?facets=1 —— 把六张脸贴图平铺出来，直接看五官画得对不对。
+// 脸是 canvas 画的，贴到球面上会被缩放和透视扭曲，先看原图才能判断绘图本身有没有问题。
+if (new URLSearchParams(location.search).get('facets') === '1') {
+  document.body.innerHTML = '';
+  document.body.style.cssText = 'margin:0;background:#f2e9da;display:flex;flex-wrap:wrap;gap:8px;padding:10px;';
+  for (const name of ['idle', 'happy', 'shy', 'blink', 'sick', 'sleep']) {
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'width:290px;';
+    const tag = document.createElement('div');
+    tag.textContent = name;
+    tag.style.cssText = 'font:12px/1.6 "PingFang SC",sans-serif;color:#6b5847;letter-spacing:.1em;';
+    const cv = document.createElement('canvas');
+    cv.width = 290; cv.height = 262;
+    const g = cv.getContext('2d');
+    g.fillStyle = '#f0d5c4';
+    g.fillRect(0, 0, 290, 262);
+    const tex = actor.faceMaps[name];
+    if (tex?.image) g.drawImage(tex.image, 0, 0, 290, 262);
+    cv.style.cssText = 'display:block;border-radius:6px;';
+    wrap.append(tag, cv);
+    document.body.append(wrap);
+  }
+}
+
+// 截图脚本用：等渲染几帧后标记就绪
+setTimeout(() => { document.title = 'READY'; }, 900);
+</script>
+</body>
+</html>
